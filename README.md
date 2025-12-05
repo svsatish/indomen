@@ -1,6 +1,6 @@
 # 🌾 Indomen Connection - E-Commerce Platform
 
-A modern, full-stack e-commerce website for selling fresh dairy, vegetables, and food products sourced weekly from Menonite and Amish farms. Built with React (Vite) and Node.js/Express.
+A modern full-stack platform built with React (Vite) and Node.js/Express that enables customers to receive fresh dairy and produce sourced weekly from Mennonite and Amish farms. We transport and coordinate delivery—we are not resellers.
 
 > 📘 **User Guide**: Check out [demo.md](./demo.md) for a visual walkthrough of the application features.
 
