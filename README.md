@@ -2,6 +2,8 @@
 
 A modern, full-stack e-commerce website for selling fresh dairy, vegetables, and food products sourced weekly from Menonite and Amish farms. Built with React (Vite) and Node.js/Express.
 
+> 📘 **User Guide**: Check out [demo.md](./demo.md) for a visual walkthrough of the application features.
+
 ## ✨ Features
 
 ### Customer Features
@@ -76,6 +78,11 @@ A modern, full-stack e-commerce website for selling fresh dairy, vegetables, and
 - **Email:** sarah@example.com
 - **Password:** password123
 
+### Kiosk Account
+- **Email:** kiosk@freshfarm.com
+- **Password:** kiosk123
+- **Access:** Kiosk Dashboard for order fulfillment
+
 ## 📁 Project Structure
 
 ```
@@ -135,14 +142,11 @@ The application uses a custom design system with:
 
 ## 💳 Payment Integration
 
-The application uses **Zelle** for payments:
-- Payment instructions displayed at checkout
-- Manual payment confirmation by admin
-- Order status updates after payment verification
-
-**Zelle Details (Demo):**
-- Email: payments@indomen.com
-- Phone: (555) 123-4567
+The application uses **Stripe** for secure credit card payments:
+- **Stripe Elements** for secure UI components.
+- **Payment Intents** for server-side security.
+- **Automatic Order Creation** upon successful payment.
+- **Demo Mode**: Includes a simulation button if API keys are not configured.
 
 ## 🔐 Authentication
 
