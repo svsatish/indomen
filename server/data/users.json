@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1",
+    "email": "admin@indomen.com",
+    "password": "$2a$10$LKDXKzrBJS1meUT2HwJEm.UE7EWpBtEgVgnY45e.9PeXJv29m9L0S",
+    "name": "Admin User",
+    "role": "admin",
+    "phone": "555-0100",
+    "address": "123 Farm Road, Countryside"
+  },
+  {
+    "id": "2",
+    "email": "john@example.com",
+    "password": "$2a$10$LKDXKzrBJS1meUT2HwJEm.UE7EWpBtEgVgnY45e.9PeXJv29m9L0S",
+    "name": "John Smith",
+    "role": "kiosk",
+    "phone": "555-0101",
+    "address": "456 Oak Street, Springfield",
+    "updatedAt": "2025-12-05T01:49:35.286Z"
+  },
+  {
+    "id": "3",
+    "email": "sarah@example.com",
+    "password": "$2a$10$LKDXKzrBJS1meUT2HwJEm.UE7EWpBtEgVgnY45e.9PeXJv29m9L0S",
+    "name": "Sarah Johnson",
+    "role": "customer",
+    "phone": "555-0102",
+    "address": "789 Maple Avenue, Riverside"
+  },
+  {
+    "id": "1764888441796",
+    "email": "sam@gmail.com",
+    "password": "$2a$10$o1xCAzG.bRpo2iq2QZsex.YWJXo/w8pyipq.dzfE2fL46xeq/gGuS",
+    "name": "sam",
+    "phone": "7036798083",
+    "address": "123 main street",
+    "role": "customer",
+    "createdAt": "2025-12-04T22:47:21.797Z",
+    "updatedAt": "2025-12-05T04:32:13.514Z"
+  }
+]

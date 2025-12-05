@@ -1,0 +1,73 @@
+.user-management {
+    padding: var(--space-3xl) 0;
+    min-height: calc(100vh - 80px);
+}
+
+.user-form {
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-xl);
+}
+
+.user-form h2 {
+    margin-bottom: var(--space-lg);
+}
+
+.users-table {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+}
+
+.action-buttons .btn {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-sm);
+}
+
+.role-select {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    border: 2px solid transparent;
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: all var(--transition-fast);
+}
+
+.role-select.badge-info {
+    background: var(--color-info);
+    color: white;
+}
+
+.role-select.badge-warning {
+    background: var(--color-warning);
+    color: var(--color-text);
+}
+
+.role-select.badge-error {
+    background: var(--color-error);
+    color: white;
+}
+
+.role-select:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+
+@media (max-width: 768px) {
+    .users-table {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}

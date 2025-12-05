@@ -1,0 +1,318 @@
+.order-management {
+    padding: var(--space-3xl) 0;
+    min-height: calc(100vh - 80px);
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+.header-actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.delivery-info-banner {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+    font-weight: 600;
+    box-shadow: var(--shadow-md);
+}
+
+.orders-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+}
+
+.orders-table tr.selected {
+    background: hsla(25, 75%, 55%, 0.1);
+}
+
+.orders-table tr.selected:hover {
+    background: hsla(25, 75%, 55%, 0.15);
+}
+
+
+.filters-row {
+    display: flex;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.filters-row .form-group {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 0;
+}
+
+.orders-table {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.text-sm {
+    font-size: var(--text-sm);
+}
+
+.price-cell {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.location-badge {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-primary-light);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: var(--text-sm);
+}
+
+.payment-status-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.payment-icon {
+    font-size: 1.5rem;
+}
+
+.payment-icon.pending {
+    opacity: 0.5;
+}
+
+.status-select {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    border: 2px solid transparent;
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.status-select.badge-warning {
+    background: var(--color-warning);
+    color: var(--color-text);
+}
+
+.status-select.badge-info {
+    background: var(--color-info);
+    color: white;
+}
+
+.status-select.badge-success {
+    background: var(--color-success);
+    color: white;
+}
+
+.status-select.badge-error {
+    background: var(--color-error);
+    color: white;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-size: inherit;
+    font-weight: 500;
+}
+
+.btn-link:hover {
+    color: var(--color-primary-dark);
+}
+
+/* Modal Styles */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: var(--space-md);
+}
+
+.modal-content {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content.modal-lg {
+    max-width: 800px;
+}
+
+.modal-header {
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: var(--text-xl);
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+}
+
+.modal-body {
+    padding: var(--space-lg);
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-md);
+}
+
+.order-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.info-group label {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xs);
+}
+
+.info-value {
+    font-weight: 500;
+    font-size: var(--text-base);
+}
+
+.price-text {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.info-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.note-box {
+    background: var(--color-bg);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--color-info);
+}
+
+.note-box.warning {
+    border-left-color: var(--color-warning);
+    background: #fffbf0;
+}
+
+.items-table-container {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-top: var(--space-md);
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.items-table th,
+.items-table td {
+    padding: var(--space-sm) var(--space-md);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.items-table th {
+    background: var(--color-bg);
+    font-weight: 600;
+    font-size: var(--text-sm);
+}
+
+.items-table tfoot td {
+    border-top: 2px solid var(--color-border);
+    background: var(--color-bg);
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.no-orders {
+    text-align: center;
+    padding: var(--space-2xl);
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+    .orders-table {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 900px;
+    }
+
+    .filters-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters-row .form-group {
+        flex: none;
+        width: 100%;
+    }
+}

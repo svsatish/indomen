@@ -1,0 +1,44 @@
+.settings-page {
+    padding: var(--space-3xl) 0;
+    min-height: calc(100vh - 80px);
+}
+
+.settings-form {
+    padding: var(--space-xl);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-section {
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.settings-section:last-of-type {
+    border-bottom: none;
+}
+
+.settings-section h2 {
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-2xl);
+}
+
+.help-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-xs);
+    margin-bottom: 0;
+}
+
+.banner-preview {
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.banner-preview p {
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+}

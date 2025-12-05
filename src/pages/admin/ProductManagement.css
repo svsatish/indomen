@@ -1,0 +1,121 @@
+.product-management {
+    padding: var(--space-3xl) 0;
+    min-height: calc(100vh - 80px);
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.product-form {
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-xl);
+}
+
+.product-form h2 {
+    margin-bottom: var(--space-lg);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: flex-end;
+    margin-top: var(--space-lg);
+}
+
+.products-table {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: var(--color-bg-secondary);
+}
+
+th {
+    padding: var(--space-md);
+    text-align: left;
+    font-weight: 700;
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-border);
+}
+
+td {
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+tbody tr:hover {
+    background: var(--color-surface-hover);
+}
+
+.product-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.product-cell img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products-table {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}

@@ -1,0 +1,33 @@
+.site-banner {
+    padding: var(--space-md) 0;
+    text-align: center;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    box-shadow: var(--shadow-sm);
+}
+
+.site-banner.alert-info {
+    background: var(--color-info);
+    color: white;
+}
+
+.site-banner.alert-success {
+    background: var(--color-success);
+    color: white;
+}
+
+.site-banner.alert-warning {
+    background: var(--color-warning);
+    color: var(--color-text);
+}
+
+.site-banner.alert-error {
+    background: var(--color-error);
+    color: white;
+}
+
+.site-banner p {
+    margin: 0;
+}
