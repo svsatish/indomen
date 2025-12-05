@@ -330,7 +330,46 @@
     "pickupLocation": "Ashburn",
     "phone": "",
     "notes": "",
+    "status": "delivered",
+    "createdAt": "2025-12-05T04:50:25.110Z",
+    "updatedAt": "2025-12-05T17:25:24.086Z"
+  },
+  {
+    "id": "sam_12052025_1223",
+    "userId": "1764888441796",
+    "userName": "sam",
+    "userEmail": "sam@gmail.com",
+    "items": [
+      {
+        "productId": "1",
+        "name": "Butter",
+        "price": 8,
+        "quantity": 3,
+        "unit": "lb",
+        "category": "dairy"
+      },
+      {
+        "productId": "2",
+        "name": "Paneer",
+        "price": 7,
+        "quantity": 1,
+        "unit": "lb",
+        "category": "dairy"
+      },
+      {
+        "productId": "3",
+        "name": "A1 Regular Milk",
+        "price": 7,
+        "quantity": 1,
+        "unit": "gallon",
+        "category": "dairy"
+      }
+    ],
+    "total": 38,
+    "pickupLocation": "Ashburn",
+    "phone": "",
+    "notes": "",
     "status": "submitted",
-    "createdAt": "2025-12-05T04:50:25.110Z"
+    "createdAt": "2025-12-05T17:23:33.082Z"
   }
 ]

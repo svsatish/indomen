@@ -3,6 +3,7 @@
 A modern full-stack platform built with React (Vite) and Node.js/Express that enables customers to receive fresh dairy and produce sourced weekly from Mennonite and Amish farms. We transport and coordinate delivery—we are not resellers.
 
 > 📘 **User Guide**: Check out [demo.md](./demo.md) for a visual walkthrough of the application features.
+> 🗄️ **Database Setup**: See [QUICKSTART_DATABASE.md](./QUICKSTART_DATABASE.md) for MongoDB setup (FREE, production-ready)
 
 ## ✨ Features
 
@@ -14,6 +15,7 @@ A modern full-stack platform built with React (Vite) and Node.js/Express that en
 - **Order History** and tracking
 - **Responsive Design** - mobile-friendly interface
 - **SEO Optimized** with proper meta tags and semantic HTML
+- **🆕 Production Database** - MongoDB Atlas (FREE tier, handles 10,000+ users)
 
 ### Admin Features
 - **Dashboard** with statistics and quick actions
@@ -21,12 +23,21 @@ A modern full-stack platform built with React (Vite) and Node.js/Express that en
 - **Order Management** - View and update order status and payment confirmation
 - **User Management** - Create customer accounts
 - **Notices** - Post announcements for customers
+- **🆕 Scalable Database** - Auto-backups, monitoring, and easy scaling
+
+### Database
+- **MongoDB Atlas** - Free tier with 512MB storage
+- **Production-Ready** - 99.95% uptime SLA
+- **Auto-Scaling** - Grows with your business
+- **Built-in Backups** - Data protection included
+- See [DATABASE_OPTIONS.md](./DATABASE_OPTIONS.md) for all free database options
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js (v16 or higher)
 - npm or yarn
+- MongoDB Atlas account (FREE) - [Sign up here](https://cloud.mongodb.com)
 
 ### Installation
 
@@ -44,7 +55,36 @@ A modern full-stack platform built with React (Vite) and Node.js/Express that en
    ```bash
    cd server
    npm install
-   cd ..
+   ```
+
+4. **Set up Database** (5 minutes)
+   
+   **Option A: MongoDB Atlas (Recommended)**
+   - Follow [QUICKSTART_DATABASE.md](./QUICKSTART_DATABASE.md)
+   - FREE tier, production-ready
+   - Handles 10,000+ users
+   
+   **Option B: Local MongoDB**
+   - Install MongoDB locally
+   - Use default `.env` configuration
+
+5. **Configure Environment**
+   ```bash
+   cd server
+   # Edit .env file with your MongoDB connection string
+   ```
+
+6. **Migrate Data to Database**
+   ```bash
+   npm run migrate
+   ```
+   
+   You should see:
+   ```
+   ✅ Imported 34 products
+   ✅ Imported 4 users  
+   ✅ Imported orders
+   🎉 Migration completed successfully!
    ```
 
 ### Running the Application

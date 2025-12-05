@@ -373,5 +373,17 @@
     "image": "/images/cinnamon-rolls.jpg",
     "stock": 25,
     "featured": true
+  },
+  {
+    "id": "1764955648069",
+    "name": "Flowers",
+    "category": "misc",
+    "price": 10,
+    "unit": "pot",
+    "description": "Flower ",
+    "stock": 20,
+    "image": "/images/product.jpg",
+    "featured": false,
+    "createdAt": "2025-12-05T17:27:28.069Z"
   }
 ]

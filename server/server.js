@@ -3,6 +3,8 @@ import session from 'express-session';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+import connectDB from './config/database.js';
 
 import authRoutes from './routes/auth.js';
 import productsRoutes from './routes/products.js';
@@ -12,11 +14,20 @@ import settingsRoutes from './routes/settings.js';
 import auditLogRoutes from './routes/auditLog.js';
 import paymentRoutes from './routes/payment.js';
 
+// Load environment variables
+dotenv.config();
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Connect to MongoDB
+connectDB().catch(err => {
+    console.error('Failed to connect to MongoDB:', err);
+    process.exit(1);
+});
 
 // Middleware
 app.use(cors({
@@ -28,11 +39,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // Session configuration
 app.use(session({
-    secret: 'fresh-farm-secret-key-change-in-production',
+    secret: process.env.SESSION_SECRET || 'fresh-farm-secret-key-change-in-production',
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false, // Set to true in production with HTTPS
+        secure: process.env.NODE_ENV === 'production',
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
     }
