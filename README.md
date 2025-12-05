@@ -10,7 +10,7 @@ A modern, full-stack e-commerce website for selling fresh dairy, vegetables, and
 - **Browse Products** by category (Dairy, Eggs, Juices, Bread, Vegetables, Fruits)
 - **Shopping Cart** with persistent storage
 - **User Authentication** (admin-created accounts only)
-- **Checkout Flow** with Zelle payment instructions
+- **Checkout Flow** with Stripe payment instructions
 - **Order History** and tracking
 - **Responsive Design** - mobile-friendly interface
 - **SEO Optimized** with proper meta tags and semantic HTML
