@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createWhatsAppLink } from '../../utils/whatsapp';
 import './OrderManagement.css';
 
 const OrderManagement = () => {
@@ -406,7 +407,20 @@ const OrderManagement = () => {
                                         </div>
                                         <div className="info-group">
                                             <label>Phone</label>
-                                            <div>{viewingOrder.phone || 'N/A'}</div>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                                <span>{viewingOrder.phone || 'N/A'}</span>
+                                                {viewingOrder.phone && (
+                                                    <a
+                                                        href={createWhatsAppLink(viewingOrder.phone, `Hi ${viewingOrder.userName}, regarding your Indomen order #${viewingOrder.id}...`)}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        title="Chat on WhatsApp"
+                                                        style={{ textDecoration: 'none', fontSize: '1.2rem' }}
+                                                    >
+                                                        💬
+                                                    </a>
+                                                )}
+                                            </div>
                                         </div>
                                         <div className="info-group">
                                             <label>Pickup Location</label>

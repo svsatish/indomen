@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createWhatsAppLink } from '../../utils/whatsapp';
 import './KioskDashboard.css';
 
 const KioskDashboard = () => {
@@ -243,7 +244,19 @@ const KioskDashboard = () => {
                                         {order.phone && (
                                             <div className="detail-item">
                                                 <span className="detail-label">📞 Phone:</span>
-                                                <span className="detail-value">{order.phone}</span>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                                    <span className="detail-value">{order.phone}</span>
+                                                    <a
+                                                        href={createWhatsAppLink(order.phone, `Hi ${order.userName}, regarding your Indomen order #${order.id}...`)}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        title="Chat on WhatsApp"
+                                                        style={{ textDecoration: 'none', fontSize: '1.2rem' }}
+                                                        onClick={(e) => e.stopPropagation()}
+                                                    >
+                                                        💬
+                                                    </a>
+                                                </div>
                                             </div>
                                         )}
                                         <div className="detail-item">
@@ -294,6 +307,17 @@ const KioskDashboard = () => {
                                             >
                                                 ⏸ Put on Hold
                                             </button>
+                                        )}
+                                        {order.status === 'hold' && order.phone && (
+                                            <a
+                                                href={createWhatsAppLink(order.phone, `Hi ${order.userName}, your Indomen order #${order.id} is currently ON HOLD. Reason: ${order.holdNote || 'Pending review'}. Please contact us.`)}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="btn btn-whatsapp"
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                💬 Notify via WhatsApp
+                                            </a>
                                         )}
                                     </div>
                                 </div>

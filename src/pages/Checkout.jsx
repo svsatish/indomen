@@ -154,133 +154,101 @@ const Checkout = () => {
             <div className="container container-narrow">
                 <h1 className="page-title">Checkout</h1>
 
-                <div className="checkout-content">
-                    <div className="checkout-form-section">
-                        <div className="checkout-form">
-                            <h2>Pickup Information</h2>
+                {error && (
+                    <div className="alert alert-error">{error}</div>
+                )}
 
-                            {error && (
-                                <div className="alert alert-error">{error}</div>
-                            )}
+                <div className="checkout-top-section">
+                    <div className="pickup-info-section">
+                        <h2>Pickup Information</h2>
 
-                            <div className="form-group">
-                                <label htmlFor="location" className="form-label">Pickup Location *</label>
-                                <select
-                                    id="location"
-                                    value={pickupLocation}
-                                    onChange={(e) => setPickupLocation(e.target.value)}
-                                    className="form-select"
-                                    required
-                                >
-                                    <option value="">Select a location...</option>
-                                    {pickupLocations.map(location => (
-                                        <option key={location} value={location}>{location}</option>
-                                    ))}
-                                </select>
-                                <p className="help-text">Select the location where you'll pick up your order</p>
-                            </div>
+                        <div className="form-group">
+                            <label htmlFor="location" className="form-label">Pickup Location *</label>
+                            <select
+                                id="location"
+                                value={pickupLocation}
+                                onChange={(e) => setPickupLocation(e.target.value)}
+                                className="form-select"
+                                required
+                            >
+                                <option value="">Select a location...</option>
+                                {pickupLocations.map(location => (
+                                    <option key={location} value={location}>{location}</option>
+                                ))}
+                            </select>
+                            <p className="help-text">Select the location where you'll pick up your order</p>
+                        </div>
 
-                            <div className="form-group">
-                                <label htmlFor="notes" className="form-label">Order Notes (Optional)</label>
-                                <textarea
-                                    id="notes"
-                                    value={notes}
-                                    onChange={(e) => setNotes(e.target.value)}
-                                    className="form-textarea"
-                                    placeholder="Any special instructions..."
-                                    rows="3"
-                                />
-                            </div>
-
-                            <div className="payment-info card-glass">
-                                <h3>💳 Secure Payment</h3>
-                                {!pickupLocation ? (
-                                    <div className="alert alert-warning">
-                                        Please select a pickup location to proceed with payment.
-                                    </div>
-                                ) : (
-                                    clientSecret ? (
-                                        <Elements options={options} stripe={stripePromise}>
-                                            <CheckoutForm
-                                                amount={getTotal()}
-                                                onSubmit={handleOrderSuccess}
-                                            />
-                                        </Elements>
-                                    ) : (
-                                        <div className="payment-placeholder">
-                                            {error && error.includes('Payment system') ? (
-                                                <div className="demo-payment">
-                                                    <p className="text-error mb-md">
-                                                        ⚠️ Stripe is not configured (Missing API Keys).
-                                                    </p>
-                                                    <button
-                                                        className="btn btn-secondary"
-                                                        onClick={() => handleOrderSuccess('demo_payment_id')}
-                                                    >
-                                                        Simulate Successful Payment (Demo)
-                                                    </button>
-                                                </div>
-                                            ) : (
-                                                <div className="loading-spinner">Loading payment options...</div>
-                                            )}
-                                        </div>
-                                    )
-                                )}
-                            </div>
+                        <div className="form-group">
+                            <label htmlFor="notes" className="form-label">Order Notes (Optional)</label>
+                            <textarea
+                                id="notes"
+                                value={notes}
+                                onChange={(e) => setNotes(e.target.value)}
+                                className="form-textarea"
+                                placeholder="Any special instructions..."
+                                rows="3"
+                            />
                         </div>
                     </div>
 
-                    <div className="order-summary-section">
-                        <div className="order-summary card">
+                    <div className="payment-info-section card">
+                        <h2>💳 Secure Payment</h2>
+                        {!pickupLocation ? (
+                            <div className="alert alert-warning">
+                                Please select a pickup location to proceed with payment.
+                            </div>
+                        ) : (
+                            clientSecret ? (
+                                <Elements options={options} stripe={stripePromise}>
+                                    <CheckoutForm
+                                        amount={getTotal()}
+                                        onSubmit={handleOrderSuccess}
+                                    />
+                                </Elements>
+                            ) : (
+                                <div className="payment-placeholder">
+                                    {error && error.includes('Payment system') ? (
+                                        <div className="demo-payment">
+                                            <p className="text-error mb-md">
+                                                ⚠️ Stripe is not configured (Missing API Keys).
+                                            </p>
+                                            <button
+                                                className="btn btn-secondary"
+                                                onClick={() => handleOrderSuccess('demo_payment_id')}
+                                            >
+                                                Simulate Successful Payment (Demo)
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <div className="loading-spinner">Loading payment options...</div>
+                                    )}
+                                </div>
+                            )
+                        )}
+                    </div>
+                </div>
+
+                <div className="order-summary-section">
+                    <div className="order-summary card">
+                        <div className="summary-header">
                             <h2>Order Summary</h2>
+                            <button onClick={() => navigate('/cart')} className="btn-link">Edit Cart</button>
+                        </div>
 
-                            <div className="summary-items">
-                                {(() => {
-                                    const groupedItems = items.reduce((acc, item) => {
-                                        const category = item.category || 'misc';
-                                        if (!acc[category]) acc[category] = [];
-                                        acc[category].push(item);
-                                        return acc;
-                                    }, {});
+                        <div className="summary-items">
+                            {items.map(item => (
+                                <div key={item.id} className="summary-item">
+                                    <span className="item-name">{item.name}</span>
+                                    <span className="item-qty">×{item.quantity}</span>
+                                    <span className="item-total">${(item.price * item.quantity).toFixed(2)}</span>
+                                </div>
+                            ))}
+                        </div>
 
-                                    const categoryOrder = ['dairy', 'eggs', 'juices', 'bread', 'vegetables', 'fruits', 'misc'];
-                                    const categoryNames = {
-                                        dairy: '🥛 Dairy',
-                                        eggs: '🥚 Eggs',
-                                        juices: '🧃 Juices',
-                                        bread: '🍞 Bread',
-                                        vegetables: '🥬 Vegetables',
-                                        fruits: '🍎 Fruits',
-                                        misc: '📦 Misc'
-                                    };
-
-                                    return categoryOrder.map(category => {
-                                        if (!groupedItems[category] || groupedItems[category].length === 0) return null;
-
-                                        return (
-                                            <div key={category} className="summary-category">
-                                                <div className="category-label">{categoryNames[category]}</div>
-                                                {groupedItems[category].map(item => (
-                                                    <div key={item.id} className="summary-item">
-                                                        <div className="summary-item-info">
-                                                            <span className="item-name">{item.name}</span>
-                                                            <span className="item-qty">× {item.quantity}</span>
-                                                        </div>
-                                                        <span className="item-price">
-                                                            ${(item.price * item.quantity).toFixed(2)}
-                                                        </span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        );
-                                    });
-                                })()}
-                            </div>
-
-                            <div className="summary-total">
-                                <span>Total</span>
-                                <span className="total-amount">${getTotal().toFixed(2)}</span>
-                            </div>
+                        <div className="summary-total">
+                            <span className="total-label">Total</span>
+                            <span className="total-amount">${getTotal().toFixed(2)}</span>
                         </div>
                     </div>
                 </div>
