@@ -38,13 +38,23 @@ router.post('/login', async (req, res) => {
         req.session.userName = user.name;
         req.session.userRole = user.role;
 
-        res.json({
-            user: {
-                id: user.id,
-                email: user.email,
-                name: user.name,
-                role: user.role
+        // Save session explicitly to ensure it's persisted
+        req.session.save((err) => {
+            if (err) {
+                console.error('Session save error:', err);
+                return res.status(500).json({ error: 'Failed to save session' });
             }
+
+            console.log('✅ User logged in:', user.email, 'Session ID:', req.sessionID);
+
+            res.json({
+                user: {
+                    id: user.id,
+                    email: user.email,
+                    name: user.name,
+                    role: user.role
+                }
+            });
         });
     } catch (error) {
         console.error('Login error:', error);
@@ -64,6 +74,15 @@ router.post('/logout', (req, res) => {
 
 // Get current session
 router.get('/session', (req, res) => {
+    console.log('📋 Session check:', {
+        sessionID: req.sessionID,
+        userId: req.session.userId,
+        userRole: req.session.userRole,
+        userEmail: req.session.userEmail,
+        hasSession: !!req.session.userId,
+        fullSession: req.session
+    });
+
     if (req.session.userId) {
         res.json({
             user: {

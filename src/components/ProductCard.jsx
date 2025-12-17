@@ -11,11 +11,33 @@ const ProductCard = ({ product }) => {
         showToast(`${product.name} added to cart!`, 'success');
     };
 
+    // Helper function to get responsive image URLs
+    const getImageUrl = (size = 'medium') => {
+        // Check if product.image contains size variants
+        if (product.imageSizes && product.imageSizes[size]) {
+            return product.imageSizes[size];
+        }
+        // Fallback to single image or try to infer size variants
+        if (typeof product.image === 'string') {
+            // If it's a new optimized image (contains -medium, -large, etc.)
+            if (product.image.includes('-medium') || product.image.includes('-large')) {
+                return product.image.replace(/-medium|-large|-thumb|-original/, `-${size}`);
+            }
+            return product.image;
+        }
+        return product.image;
+    };
+
     return (
         <div className="product-card animate-scale-in">
             <Link to={`/product/${product.id}`} className="product-image-link">
                 <div className="product-image">
-                    <img src={product.image} alt={product.name} />
+                    <img
+                        src={getImageUrl('medium')}
+                        alt={product.name}
+                        loading="lazy"
+                        decoding="async"
+                    />
                     {product.stock < 5 && product.stock > 0 && (
                         <span className="badge badge-warning stock-badge">Low Stock</span>
                     )}

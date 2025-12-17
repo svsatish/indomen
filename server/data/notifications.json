@@ -1,0 +1,41 @@
+[
+  {
+    "id": "NOTIF_1765751185577",
+    "userId": "1765747328062",
+    "userEmail": "satish@gmail.com",
+    "userName": "Satish",
+    "type": "credit",
+    "message": "You have received a store credit of $2.00. Reason: Product unavailable - store credit",
+    "amount": 2,
+    "relatedId": "CREDIT_1765751185570",
+    "status": "read",
+    "createdAt": "2025-12-14T22:26:25.577Z",
+    "readAt": "2025-12-14T22:27:07.472Z"
+  },
+  {
+    "id": "NOTIF_1765751199428",
+    "userId": "1765747328062",
+    "userEmail": "satish@gmail.com",
+    "userName": "Satish",
+    "type": "debit",
+    "message": "You have been charged $3.00. Reason: Additional purchases at pickup",
+    "amount": 3,
+    "relatedId": "DEBIT_1765751199424",
+    "status": "read",
+    "createdAt": "2025-12-14T22:26:39.428Z",
+    "readAt": "2025-12-14T22:27:00.628Z"
+  },
+  {
+    "id": "NOTIF_1765850993862",
+    "userId": "1764888441796",
+    "userEmail": "sam@gmail.com",
+    "userName": "sam",
+    "type": "debit",
+    "message": "You have been charged $10.00. Reason: bought 1g milk extra",
+    "amount": 10,
+    "relatedId": "DEBIT_1765850993858",
+    "status": "read",
+    "createdAt": "2025-12-16T02:09:53.862Z",
+    "readAt": "2025-12-16T02:10:29.820Z"
+  }
+]

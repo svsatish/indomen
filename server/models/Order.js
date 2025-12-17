@@ -2,8 +2,7 @@ import mongoose from 'mongoose';
 
 const orderItemSchema = new mongoose.Schema({
     productId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product',
+        type: String,  // Use String instead of ObjectId for compatibility with existing JSON data
         required: true
     },
     name: String,
@@ -47,7 +46,7 @@ const orderSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['pending', 'confirmed', 'ready', 'completed', 'cancelled'],
+        enum: ['pending', 'confirmed', 'ready', 'completed', 'cancelled', 'hold', 'delivered', 'submitted'],
         default: 'pending'
     },
     paymentId: {

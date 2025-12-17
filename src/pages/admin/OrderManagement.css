@@ -95,7 +95,7 @@
 }
 
 .payment-icon {
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
 }
 
 .payment-icon.pending {
@@ -194,7 +194,7 @@
 .btn-close {
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: var(--text-2xl);
     cursor: pointer;
     color: var(--color-text-secondary);
 }

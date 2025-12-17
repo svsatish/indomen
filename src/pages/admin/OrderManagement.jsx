@@ -6,10 +6,14 @@ const OrderManagement = () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [locationFilter, setLocationFilter] = useState('');
-    const [weekFilter, setWeekFilter] = useState('upcoming'); // 'all', 'upcoming', 'current', 'past'
+    const [weekFilter, setWeekFilter] = useState('upcoming'); // 'all', 'upcoming', 'past'
     const [statusFilter, setStatusFilter] = useState('');
     const [selectedOrders, setSelectedOrders] = useState([]);
     const [viewingOrder, setViewingOrder] = useState(null);
+    const [issuingCredit, setIssuingCredit] = useState(null); // For credit modal
+    const [creditAmount, setCreditAmount] = useState('');
+    const [creditReason, setCreditReason] = useState('');
+    const [creditType, setCreditType] = useState('credit'); // 'credit' or 'debit'
 
     const pickupLocations = ['Ashburn', 'Centerville', 'Herndon', 'Fairfax'];
 
@@ -48,52 +52,35 @@ const OrderManagement = () => {
         }
     };
 
-    // Get next Saturday
-    const getNextSaturday = () => {
+    // Get upcoming Saturday
+    const getUpcomingSaturday = () => {
         const today = new Date();
         const dayOfWeek = today.getDay();
         const daysUntilSaturday = (6 - dayOfWeek + 7) % 7 || 7;
-        const nextSaturday = new Date(today);
-        nextSaturday.setDate(today.getDate() + daysUntilSaturday);
-        nextSaturday.setHours(0, 0, 0, 0);
-        return nextSaturday;
-    };
-
-    // Get current Saturday (this week's)
-    const getCurrentSaturday = () => {
-        const today = new Date();
-        const dayOfWeek = today.getDay();
-        const daysUntilSaturday = (6 - dayOfWeek + 7) % 7;
-        const saturday = new Date(today);
-        saturday.setDate(today.getDate() + daysUntilSaturday);
-        saturday.setHours(0, 0, 0, 0);
-        return saturday;
+        const upcomingSaturday = new Date(today);
+        upcomingSaturday.setDate(today.getDate() + daysUntilSaturday);
+        upcomingSaturday.setHours(0, 0, 0, 0);
+        return upcomingSaturday;
     };
 
     // Filter orders by week
     const getWeekFilteredOrders = () => {
         if (weekFilter === 'all') return orders;
 
-        const now = new Date();
-        const currentSaturday = getCurrentSaturday();
-        const nextSaturday = getNextSaturday();
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Start of today
+        const upcomingSaturday = getUpcomingSaturday();
 
         return orders.filter(order => {
             const orderDate = new Date(order.createdAt);
+            orderDate.setHours(0, 0, 0, 0); // Normalize to start of day for comparison
 
             if (weekFilter === 'upcoming') {
-                // Orders for next weekend (after current Saturday)
-                return orderDate >= currentSaturday;
-            } else if (weekFilter === 'current') {
-                // Orders for this week's delivery
-                const weekStart = new Date(currentSaturday);
-                weekStart.setDate(weekStart.getDate() - 7);
-                return orderDate >= weekStart && orderDate < currentSaturday;
+                // Orders from today onwards until upcoming Saturday
+                return orderDate >= today && orderDate <= upcomingSaturday;
             } else if (weekFilter === 'past') {
-                // Orders older than current week
-                const weekStart = new Date(currentSaturday);
-                weekStart.setDate(weekStart.getDate() - 7);
-                return orderDate < weekStart;
+                // Past orders (before today)
+                return orderDate < today;
             }
             return true;
         });
@@ -193,11 +180,53 @@ const OrderManagement = () => {
         return badges[status] || 'badge-info';
     };
 
+    // Issue credit or debit to customer
+    const handleIssueCredit = async () => {
+        if (!creditAmount || parseFloat(creditAmount) <= 0) {
+            alert('Please enter a valid amount');
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/credits/issue', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({
+                    userId: issuingCredit.userId,
+                    userEmail: issuingCredit.userEmail,
+                    userName: issuingCredit.userName,
+                    amount: parseFloat(creditAmount),
+                    reason: creditReason || (creditType === 'credit' ? 'Product unavailable - store credit' : 'Additional purchases at pickup'),
+                    orderId: issuingCredit.id,
+                    type: creditType
+                })
+            });
+
+            if (response.ok) {
+                const message = creditType === 'credit'
+                    ? `$${creditAmount} credit issued to ${issuingCredit.userName} successfully!`
+                    : `$${creditAmount} charge added to ${issuingCredit.userName}'s account successfully!`;
+                alert(message);
+                setIssuingCredit(null);
+                setCreditAmount('');
+                setCreditReason('');
+                setCreditType('credit');
+            } else {
+                const error = await response.json();
+                alert(`Failed to issue ${creditType}: ${error.error}`);
+            }
+        } catch (error) {
+            console.error(`Error issuing ${creditType}:`, error);
+            alert(`Failed to issue ${creditType}`);
+        }
+    };
+
     if (loading) {
         return <div className="loading">Loading orders...</div>;
     }
 
-    const nextSaturday = getNextSaturday();
+    const upcomingSaturday = getUpcomingSaturday();
 
     return (
         <div className="order-management">
@@ -218,7 +247,7 @@ const OrderManagement = () => {
 
                 {/* Delivery Info Banner */}
                 <div className="delivery-info-banner">
-                    <span>📅 Next Delivery: {nextSaturday.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                    <span>📅 Upcoming Weekend Delivery: {upcomingSaturday.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</span>
                 </div>
 
                 {/* Filters */}
@@ -231,7 +260,6 @@ const OrderManagement = () => {
                             className="form-select"
                         >
                             <option value="upcoming">Upcoming Weekend</option>
-                            <option value="current">Current Week</option>
                             <option value="past">Past Orders</option>
                             <option value="all">All Orders</option>
                         </select>
@@ -476,7 +504,123 @@ const OrderManagement = () => {
                                 </div>
                             </div>
                             <div className="modal-footer">
+                                <button
+                                    className="btn btn-primary"
+                                    onClick={() => {
+                                        setIssuingCredit(viewingOrder);
+                                        setViewingOrder(null);
+                                    }}
+                                >
+                                    💰 Issue Credit/Charge
+                                </button>
                                 <button className="btn btn-secondary" onClick={() => setViewingOrder(null)}>Close</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Credit/Debit Issuance Modal */}
+                {issuingCredit && (
+                    <div className="modal-backdrop" onClick={() => setIssuingCredit(null)}>
+                        <div className="modal-content" onClick={e => e.stopPropagation()}>
+                            <div className="modal-header">
+                                <h2>{creditType === 'credit' ? 'Issue Store Credit' : 'Add Charge to Account'}</h2>
+                                <button className="btn-close" onClick={() => setIssuingCredit(null)}>×</button>
+                            </div>
+                            <div className="modal-body">
+                                <div className="info-group mb-lg">
+                                    <label>Customer</label>
+                                    <div className="info-value">{issuingCredit.userName}</div>
+                                    <div className="text-muted text-sm">{issuingCredit.userEmail}</div>
+                                </div>
+
+                                <div className="info-group mb-lg">
+                                    <label>Related Order</label>
+                                    <div className="info-value">#{issuingCredit.id}</div>
+                                    <div className="text-muted text-sm">
+                                        Total: ${issuingCredit.total.toFixed(2)}
+                                    </div>
+                                </div>
+
+                                <div className="form-group">
+                                    <label className="form-label">Type *</label>
+                                    <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+                                        <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                                            <input
+                                                type="radio"
+                                                name="creditType"
+                                                value="credit"
+                                                checked={creditType === 'credit'}
+                                                onChange={(e) => setCreditType(e.target.value)}
+                                            />
+                                            <span>💰 Store Credit</span>
+                                            <small style={{ color: 'var(--color-text-muted)' }}>(Customer can use this)</small>
+                                        </label>
+                                        <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                                            <input
+                                                type="radio"
+                                                name="creditType"
+                                                value="debit"
+                                                checked={creditType === 'debit'}
+                                                onChange={(e) => setCreditType(e.target.value)}
+                                            />
+                                            <span>📤 Charge/Debit</span>
+                                            <small style={{ color: 'var(--color-text-muted)' }}>(Customer owes this)</small>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div className="form-group">
+                                    <label className="form-label">Amount ($) *</label>
+                                    <input
+                                        type="number"
+                                        step="0.01"
+                                        min="0"
+                                        value={creditAmount}
+                                        onChange={(e) => setCreditAmount(e.target.value)}
+                                        className="form-input"
+                                        placeholder="Enter amount..."
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label className="form-label">Reason</label>
+                                    <textarea
+                                        value={creditReason}
+                                        onChange={(e) => setCreditReason(e.target.value)}
+                                        className="form-textarea"
+                                        placeholder={creditType === 'credit'
+                                            ? 'e.g., Product unavailable, Quality issue, etc.'
+                                            : 'e.g., Extra items purchased at pickup, Additional products, etc.'}
+                                        rows="3"
+                                    />
+                                </div>
+
+                                {creditType === 'credit' ? (
+                                    <div className="alert alert-info">
+                                        <strong>ℹ️ Note:</strong> This credit will be added to the customer's account
+                                        and can be applied to their future orders.
+                                    </div>
+                                ) : (
+                                    <div className="alert alert-warning">
+                                        <strong>⚠️ Note:</strong> This charge will be added to the customer's account balance.
+                                        They will need to pay this amount in their next order or separately.
+                                    </div>
+                                )}
+                            </div>
+                            <div className="modal-footer">
+                                <button className="btn btn-secondary" onClick={() => setIssuingCredit(null)}>
+                                    Cancel
+                                </button>
+                                <button
+                                    className={creditType === 'credit' ? 'btn btn-primary' : 'btn btn-warning'}
+                                    onClick={handleIssueCredit}
+                                >
+                                    {creditType === 'credit'
+                                        ? `💳 Issue $${creditAmount || '0.00'} Credit`
+                                        : `📤 Add $${creditAmount || '0.00'} Charge`
+                                    }
+                                </button>
                             </div>
                         </div>
                     </div>

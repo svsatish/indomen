@@ -19,15 +19,6 @@
     "updatedAt": "2025-12-05T01:49:35.286Z"
   },
   {
-    "id": "3",
-    "email": "sarah@example.com",
-    "password": "$2a$10$LKDXKzrBJS1meUT2HwJEm.UE7EWpBtEgVgnY45e.9PeXJv29m9L0S",
-    "name": "Sarah Johnson",
-    "role": "customer",
-    "phone": "555-0102",
-    "address": "789 Maple Avenue, Riverside"
-  },
-  {
     "id": "1764888441796",
     "email": "sam@gmail.com",
     "password": "$2a$10$o1xCAzG.bRpo2iq2QZsex.YWJXo/w8pyipq.dzfE2fL46xeq/gGuS",
@@ -37,5 +28,25 @@
     "role": "customer",
     "createdAt": "2025-12-04T22:47:21.797Z",
     "updatedAt": "2025-12-05T04:32:13.514Z"
+  },
+  {
+    "id": "1765747328062",
+    "email": "satish@gmail.com",
+    "password": "$2a$10$qYXcO.NGqDyPql0zrpsKBuonbK9ggebHDPNURLREilGYjte9EgefG",
+    "name": "Satish",
+    "phone": "5712968083",
+    "address": "123 Main Street",
+    "role": "customer",
+    "createdAt": "2025-12-14T21:22:08.062Z"
+  },
+  {
+    "id": "1765747361022",
+    "email": "krishna@gmail.com",
+    "password": "$2a$10$I72j05o8P0cHfVV6GHZdouppxDU5UtH9bv0sPNUMe/zcyrAQDwfAW",
+    "name": "Krishna",
+    "phone": "5712968083",
+    "address": "123 Main Street",
+    "role": "customer",
+    "createdAt": "2025-12-14T21:22:41.022Z"
   }
 ]

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ImageUpload from '../../components/ImageUpload';
 import './ProductManagement.css';
 
 const ProductManagement = () => {
@@ -192,15 +193,11 @@ const ProductManagement = () => {
                                     />
                                 </div>
 
-                                <div className="form-group">
-                                    <label className="form-label">Image URL</label>
-                                    <input
-                                        type="text"
-                                        value={formData.image}
-                                        onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                                        className="form-input"
-                                        placeholder="/images/product.jpg"
-                                        required
+                                <div className="form-group full-width">
+                                    <label className="form-label">Product Image</label>
+                                    <ImageUpload
+                                        currentImage={formData.image}
+                                        onImageUpload={(imageUrl) => setFormData({ ...formData, image: imageUrl })}
                                     />
                                 </div>
                             </div>

@@ -28,18 +28,25 @@
 }
 
 .hero-title {
+    font-family: var(--font-serif);
     font-size: var(--text-5xl);
+    font-weight: 800;
     margin-bottom: var(--space-lg);
     color: white;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.01em;
+    line-height: 1.2;
 }
 
 .hero-subtitle {
+    font-family: var(--font-sans);
     font-size: var(--text-xl);
+    font-weight: 400;
     margin-bottom: var(--space-2xl);
     color: rgba(255, 255, 255, 0.95);
     line-height: 1.8;
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.01em;
 }
 
 /* Stronger shadows for dark theme */
@@ -99,7 +106,7 @@
 }
 
 .category-emoji {
-    font-size: 4rem;
+    font-size: calc(var(--text-5xl) * 1.2);
     margin-bottom: var(--space-md);
     transition: transform var(--transition-base);
 }

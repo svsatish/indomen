@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useCache } from '../context/CacheContext';
 import ProductCard from '../components/ProductCard';
 import './Home.css';
 
@@ -8,17 +9,32 @@ const Home = () => {
     const { user, isKiosk } = useAuth();
     const [featuredProducts, setFeaturedProducts] = useState([]);
     const [notices, setNotices] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [initialLoad, setInitialLoad] = useState(true);
+    const { getCachedData, setCachedData } = useCache();
 
     useEffect(() => {
         if (user && !isKiosk()) {
             fetchData();
         } else {
             setLoading(false);
+            setInitialLoad(false);
         }
     }, [user]);
 
     const fetchData = async () => {
+        const cacheKey = 'home_data';
+
+        // Check cache first
+        const cachedData = getCachedData(cacheKey);
+        if (cachedData) {
+            setFeaturedProducts(cachedData.products);
+            setNotices(cachedData.notices);
+            setInitialLoad(false);
+            return;
+        }
+
+        setLoading(true);
         try {
             const [productsRes, noticesRes] = await Promise.all([
                 fetch('/api/products'),
@@ -28,12 +44,20 @@ const Home = () => {
             const products = await productsRes.json();
             const noticesData = await noticesRes.json();
 
-            setFeaturedProducts(products.filter(p => p.featured).slice(0, 6));
+            const featured = products.filter(p => p.featured).slice(0, 6);
+            setFeaturedProducts(featured);
             setNotices(noticesData);
+
+            // Cache the results
+            setCachedData(cacheKey, {
+                products: featured,
+                notices: noticesData
+            });
         } catch (error) {
             console.error('Error fetching data:', error);
         } finally {
             setLoading(false);
+            setInitialLoad(false);
         }
     };
 
@@ -47,7 +71,8 @@ const Home = () => {
         { name: 'Misc', emoji: '📦', path: '/products?category=misc', color: 'hsl(280, 60%, 95%)' }
     ];
 
-    if (loading) {
+    // Only show loading on initial load
+    if (initialLoad && loading) {
         return <div className="loading">Loading...</div>;
     }
 

@@ -38,18 +38,32 @@
     background: linear-gradient(135deg, rgba(237, 137, 54, 0.1), rgba(76, 140, 74, 0.1));
 }
 
-/* Order Summary - Compact & Simple */
+/* ============================================
+   ORDER SUMMARY - COMPLETELY REWRITTEN
+   ============================================ */
+
 .order-summary-section {
     width: 100%;
     margin-top: var(--space-2xl);
+    display: block;
 }
 
 .order-summary {
+    display: block;
     padding: var(--space-xl);
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
 }
 
+.order-summary > * {
+    display: block;
+    width: 100%;
+}
+
+/* Header Row */
 .summary-header {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--space-lg);
@@ -60,6 +74,7 @@
 .summary-header h2 {
     margin: 0;
     font-size: var(--text-xl);
+    color: var(--color-text);
 }
 
 .btn-link {
@@ -79,32 +94,22 @@
     text-decoration: underline;
 }
 
+/* Items List */
 .summary-items {
+    display: block;
     margin-bottom: var(--space-lg);
-    max-height: 300px;
+    max-height: 200px;
     overflow-y: auto;
 }
 
-.summary-items::-webkit-scrollbar {
-    width: 6px;
-}
-
-.summary-items::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.summary-items::-webkit-scrollbar-thumb {
-    background: var(--color-border);
-    border-radius: var(--radius-full);
-}
-
 .summary-item {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: var(--space-md);
-    padding: var(--space-sm) 0;
-    border-bottom: 1px solid var(--color-border-light);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-border-light);
+    gap: 12px;
 }
 
 .summary-item:last-child {
@@ -112,50 +117,193 @@
 }
 
 .item-name {
-    font-size: var(--text-sm);
+    flex: 1;
+    font-size: 14px;
     color: var(--color-text);
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .item-qty {
-    font-size: var(--text-sm);
+    font-size: 14px;
     color: var(--color-text-secondary);
     font-weight: 600;
-    min-width: 40px;
-    text-align: right;
+    flex-shrink: 0;
 }
 
 .item-total {
-    font-size: var(--text-base);
+    font-size: 16px;
     font-weight: 700;
     color: var(--color-primary);
-    min-width: 80px;
+    flex-shrink: 0;
+    min-width: 70px;
     text-align: right;
 }
 
-.summary-total {
+/* Totals Section - Force Block Layout */
+.summary-totals {
+    display: block;
+    margin-top: var(--space-lg);
     padding-top: var(--space-lg);
     border-top: 2px solid var(--color-border);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: var(--space-md);
+}
+
+.summary-totals > * {
+    display: block;
+    width: 100%;
+}
+
+/* Subtotal Row */
+.summary-subtotal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    clear: both;
+}
+
+.subtotal-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.subtotal-amount {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* Credit Section */
+.credit-section {
+    display: block;
+    background: rgba(76, 140, 74, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 12px 0;
+    clear: both;
+}
+
+.credit-available {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.credit-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.credit-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.credit-balance {
+    font-size: 14px;
+    color: var(--color-success);
+    font-weight: 600;
+}
+
+.credit-applied {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(76, 140, 74, 0.15);
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.credit-label {
+    font-size: 16px;
+    color: var(--color-success);
+    font-weight: 600;
+}
+
+.credit-amount {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-success);
+}
+
+/* Debit Section - Balance Owed */
+.debit-section {
+    display: block;
+    background: rgba(237, 137, 54, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 12px 0;
+    border-left: 4px solid var(--color-warning);
+    clear: both;
+}
+
+[data-theme="dark"] .debit-section {
+    background: rgba(237, 137, 54, 0.15);
+}
+
+.debit-notice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 
+.debit-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-warning);
+}
+
+.debit-amount {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-warning);
+}
+
+.debit-explanation {
+    display: block;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-top: 8px;
+    padding-left: 8px;
+    border-left: 2px solid var(--color-warning);
+}
+
+/* Total Row */
+.summary-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    margin-top: 12px;
+    border-top: 2px dashed var(--color-border);
+    clear: both;
+}
+
 .total-label {
-    font-size: var(--text-lg);
+    font-size: 18px;
     font-weight: 700;
     color: var(--color-text);
 }
 
 .total-amount {
-    font-size: var(--text-2xl);
+    font-size: 24px;
     font-weight: 800;
     color: var(--color-primary);
     font-family: var(--font-display);
-    text-align: right;
 }
 
 /* Responsive */
@@ -174,5 +322,49 @@
         white-space: normal;
         overflow: visible;
     }
+}
+
+/* Payment Placeholder & Loading */
+.payment-placeholder {
+    padding: var(--space-2xl);
+    text-align: center;
+}
+
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-2xl);
+}
+
+.loading-spinner .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    margin: 0;
+}
+
+.demo-payment {
+    padding: var(--space-xl);
+}
+
+.demo-payment .btn {
+    margin-top: var(--space-md);
 }
 

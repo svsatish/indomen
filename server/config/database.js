@@ -14,17 +14,15 @@ export const connectDB = async () => {
     }
 
     try {
-        const db = await mongoose.connect(MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        // These options are no longer needed in Mongoose 6+
+        const db = await mongoose.connect(MONGODB_URI);
 
         isConnected = db.connections[0].readyState === 1;
         console.log('✅ MongoDB connected successfully');
         console.log(`📦 Database: ${db.connection.name}`);
     } catch (error) {
         console.error('❌ MongoDB connection error:', error);
-        process.exit(1);
+        throw error; // Let the caller handle the error
     }
 };
 

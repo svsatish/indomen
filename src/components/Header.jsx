@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { useTheme } from '../context/ThemeContext';
@@ -9,6 +10,34 @@ const Header = () => {
     const { user, logout, isAdmin, isKiosk, isAdminOrKiosk } = useAuth();
     const { getItemCount, showCartAnimation, isCartSidebarOpen, openCartSidebar, closeCartSidebar } = useCart();
     const { theme, toggleTheme } = useTheme();
+    const [debitBalance, setDebitBalance] = useState(0);
+    const location = useLocation();
+
+    // Fetch user's balance to show "Pay Balance" option
+    useEffect(() => {
+        const fetchBalance = async () => {
+            if (user && !isKiosk()) {
+                try {
+                    const response = await fetch('/api/credits/balance', {
+                        credentials: 'include'
+                    });
+                    if (response.ok) {
+                        const data = await response.json();
+                        setDebitBalance(data.debitBalance || 0);
+                    }
+                } catch (error) {
+                    console.error('Error fetching balance:', error);
+                }
+            } else {
+                setDebitBalance(0);
+            }
+        };
+        fetchBalance();
+
+        // Also set up an interval to refresh every 30 seconds
+        const interval = setInterval(fetchBalance, 30000);
+        return () => clearInterval(interval);
+    }, [user, isKiosk, location.pathname]); // Re-fetch when location changes
 
     const categories = [
         { name: 'Dairy', path: '/products?category=dairy' },
@@ -25,7 +54,13 @@ const Header = () => {
                 <div className="container">
                     <div className="header-content">
                         <Link to="/" className="logo">
-                            🌾 Indomen Connection
+                            <div className="logo-content">
+                                <span className="logo-icon">🌾</span>
+                                <div className="logo-text">
+                                    <span className="logo-main">Indomen</span>
+                                    <span className="logo-sub">Connection</span>
+                                </div>
+                            </div>
                         </Link>
 
                         {/* Show navigation only for authenticated users */}
@@ -73,12 +108,23 @@ const Header = () => {
                             {user ? (
                                 <div className="user-menu">
                                     <span className="user-name">👋 {user.name}</span>
-                                    {isAdmin() && (
-                                        <Link to="/admin" className="btn btn-sm btn-secondary">
-                                            Admin
+                                    {/* Show Pay Balance button if user owes money */}
+                                    {debitBalance > 0 && !isKiosk() && (
+                                        <Link to="/pay-balance" className="btn btn-sm btn-warning pay-balance-btn">
+                                            ⚠️ Pay ${debitBalance.toFixed(2)}
                                         </Link>
                                     )}
-                                    {isKiosk() && (
+                                    {isAdmin() && (
+                                        <>
+                                            <Link to="/admin" className="btn btn-sm btn-secondary">
+                                                Admin
+                                            </Link>
+                                            <Link to="/kiosk" className="btn btn-sm btn-secondary">
+                                                Kiosk
+                                            </Link>
+                                        </>
+                                    )}
+                                    {isKiosk() && !isAdmin() && (
                                         <Link to="/kiosk" className="btn btn-sm btn-secondary">
                                             Kiosk
                                         </Link>

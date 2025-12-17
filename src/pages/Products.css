@@ -12,6 +12,53 @@
     text-transform: capitalize;
 }
 
+.results-info {
+    padding: var(--space-md);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.results-info p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+}
+
+.results-info strong {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: var(--text-base);
+}
+
+/* Inline loading indicator */
+.inline-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-xl);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+}
+
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 .products-filters {
     display: flex;
     gap: var(--space-sm);

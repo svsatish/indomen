@@ -1,351 +1,16 @@
 [
   {
-    "id": "1764874513403",
-    "userId": "2",
-    "userName": "John Smith",
-    "userEmail": "john@example.com",
+    "id": "Satish_12142025_1623",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
     "items": [
       {
-        "productId": "5",
-        "name": "Farm Fresh Eggs",
-        "price": 6.99,
-        "quantity": 1,
-        "unit": "dozen",
-        "category": "eggs"
-      },
-      {
-        "productId": "10",
-        "name": "Whole Wheat Bread",
-        "price": 5.49,
-        "quantity": 1,
-        "unit": "loaf",
-        "category": "bread"
-      },
-      {
-        "productId": "11",
-        "name": "Cinnamon Rolls",
-        "price": 8.99,
-        "quantity": 1,
-        "unit": "6-pack",
-        "category": "bread"
-      },
-      {
-        "productId": "13",
-        "name": "Heirloom Tomatoes",
-        "price": 4.99,
-        "quantity": 1,
-        "unit": "lb",
-        "category": "vegetables"
-      },
-      {
-        "productId": "17",
-        "name": "Fresh Strawberries",
-        "price": 5.99,
-        "quantity": 1,
-        "unit": "pint",
-        "category": "fruits"
-      }
-    ],
-    "total": 32.45,
-    "pickupLocation": "Ashburn",
-    "phone": "678980867",
-    "notes": "",
-    "status": "hold",
-    "createdAt": "2025-12-04T18:55:13.403Z",
-    "updatedAt": "2025-12-05T04:17:23.898Z",
-    "holdNote": "jkkf",
-    "holdWith": "jkkf"
-  },
-  {
-    "id": "1764875062327",
-    "userId": "2",
-    "userName": "John Smith",
-    "userEmail": "john@example.com",
-    "items": [
-      {
-        "productId": "1",
-        "name": "Fresh Whole Milk",
-        "price": 5.99,
+        "productId": "4",
+        "name": "A2 Regular Milk",
+        "price": 7.5,
         "quantity": 2,
         "unit": "gallon",
-        "category": "dairy"
-      },
-      {
-        "productId": "5",
-        "name": "Farm Fresh Eggs",
-        "price": 6.99,
-        "quantity": 1,
-        "unit": "dozen",
-        "category": "eggs"
-      },
-      {
-        "productId": "13",
-        "name": "Heirloom Tomatoes",
-        "price": 4.99,
-        "quantity": 1,
-        "unit": "lb",
-        "category": "vegetables"
-      }
-    ],
-    "total": 23.96,
-    "pickupLocation": "Ashburn",
-    "phone": "7036798083",
-    "notes": "",
-    "status": "delivered",
-    "createdAt": "2025-12-04T19:04:22.327Z",
-    "updatedAt": "2025-12-05T02:03:33.975Z"
-  },
-  {
-    "id": "1764881670842",
-    "userId": "2",
-    "userName": "John Smith",
-    "userEmail": "john@example.com",
-    "items": [
-      {
-        "productId": "2",
-        "name": "Artisan Cheddar Cheese",
-        "price": 8.99,
-        "quantity": 2,
-        "unit": "lb",
-        "category": "dairy"
-      }
-    ],
-    "total": 17.98,
-    "pickupLocation": "Centerville",
-    "phone": "7034566780",
-    "notes": "",
-    "status": "delivered",
-    "createdAt": "2025-12-04T20:54:30.843Z",
-    "updatedAt": "2025-12-05T03:19:27.566Z"
-  },
-  {
-    "id": "1764883427691",
-    "userId": "2",
-    "userName": "John Smith",
-    "userEmail": "john@example.com",
-    "items": [
-      {
-        "productId": "3",
-        "name": "Grass-Fed Butter",
-        "price": 6.49,
-        "quantity": 20,
-        "unit": "lb",
-        "category": "dairy"
-      },
-      {
-        "productId": "7",
-        "name": "Fresh Orange Juice",
-        "price": 8.49,
-        "quantity": 4,
-        "unit": "64oz",
-        "category": "juices"
-      }
-    ],
-    "total": 163.76000000000002,
-    "pickupLocation": "Ashburn",
-    "phone": "",
-    "notes": "",
-    "status": "delivered",
-    "createdAt": "2025-12-04T21:23:47.691Z",
-    "updatedAt": "2025-12-05T03:19:39.844Z"
-  },
-  {
-    "id": "John_Smith_12042025",
-    "userId": "2",
-    "userName": "John Smith",
-    "userEmail": "john@example.com",
-    "items": [
-      {
-        "productId": "1",
-        "name": "Fresh Whole Milk",
-        "price": 5.99,
-        "quantity": 3,
-        "unit": "gallon",
-        "category": "dairy"
-      }
-    ],
-    "total": 17.97,
-    "pickupLocation": "Ashburn",
-    "phone": "",
-    "notes": "",
-    "status": "delivered",
-    "createdAt": "2025-12-04T21:34:05.527Z",
-    "updatedAt": "2025-12-05T03:40:32.884Z"
-  },
-  {
-    "id": "John_Smith_12042025_1764884914086",
-    "userId": "2",
-    "userName": "John Smith",
-    "userEmail": "john@example.com",
-    "items": [
-      {
-        "productId": "2",
-        "name": "Artisan Cheddar Cheese",
-        "price": 8.99,
-        "quantity": 1,
-        "unit": "lb",
-        "category": "dairy"
-      }
-    ],
-    "total": 8.99,
-    "pickupLocation": "Ashburn",
-    "phone": "",
-    "notes": "",
-    "status": "delivered",
-    "createdAt": "2025-12-04T21:48:34.086Z",
-    "holdNote": "nkf",
-    "holdWith": "nkf",
-    "updatedAt": "2025-12-05T03:19:55.733Z"
-  },
-  {
-    "id": "John_Smith_12042025_1764886253906",
-    "userId": "2",
-    "userName": "John Smith",
-    "userEmail": "john@example.com",
-    "items": [
-      {
-        "productId": "1",
-        "name": "Fresh Whole Milk",
-        "price": 5.99,
-        "quantity": 3,
-        "unit": "gallon",
-        "category": "dairy"
-      }
-    ],
-    "total": 17.97,
-    "pickupLocation": "Ashburn",
-    "phone": "",
-    "notes": "",
-    "status": "submitted",
-    "createdAt": "2025-12-04T22:10:53.907Z"
-  },
-  {
-    "id": "John_Smith_12042025_1764886646400",
-    "userId": "2",
-    "userName": "John Smith",
-    "userEmail": "john@example.com",
-    "items": [
-      {
-        "productId": "7",
-        "name": "Fresh Orange Juice",
-        "price": 8.49,
-        "quantity": 1,
-        "unit": "64oz",
-        "category": "juices"
-      },
-      {
-        "productId": "8",
-        "name": "Mixed Berry Juice",
-        "price": 9.99,
-        "quantity": 1,
-        "unit": "64oz",
-        "category": "juices"
-      },
-      {
-        "productId": "1",
-        "name": "Fresh Whole Milk",
-        "price": 5.99,
-        "quantity": 1,
-        "unit": "gallon",
-        "category": "dairy"
-      }
-    ],
-    "total": 24.47,
-    "pickupLocation": "Centerville",
-    "phone": "",
-    "notes": "",
-    "status": "submitted",
-    "createdAt": "2025-12-04T22:17:26.400Z"
-  },
-  {
-    "id": "JohnSmith_12042025_MN60",
-    "userId": "2",
-    "userName": "John Smith",
-    "userEmail": "john@example.com",
-    "items": [
-      {
-        "productId": "1",
-        "name": "Fresh Whole Milk",
-        "price": 5.99,
-        "quantity": 1,
-        "unit": "gallon",
-        "category": "dairy"
-      }
-    ],
-    "total": 5.99,
-    "pickupLocation": "Ashburn",
-    "phone": "",
-    "notes": "",
-    "status": "submitted",
-    "createdAt": "2025-12-04T22:30:36.061Z",
-    "updatedAt": "2025-12-04T22:45:42.412Z"
-  },
-  {
-    "id": "AdminUser_12042025_SCRB",
-    "userId": "1",
-    "userName": "Admin User",
-    "userEmail": "admin@freshfarm.com",
-    "items": [
-      {
-        "productId": "2",
-        "name": "Artisan Cheddar Cheese",
-        "price": 8.99,
-        "quantity": 1,
-        "unit": "lb",
-        "category": "dairy"
-      }
-    ],
-    "total": 8.99,
-    "pickupLocation": "Ashburn",
-    "phone": "",
-    "notes": "",
-    "status": "delivered",
-    "createdAt": "2025-12-05T01:41:21.925Z",
-    "updatedAt": "2025-12-05T02:17:39.795Z"
-  },
-  {
-    "id": "sam_12042025_2350",
-    "userId": "1764888441796",
-    "userName": "sam",
-    "userEmail": "sam@gmail.com",
-    "items": [
-      {
-        "productId": "13",
-        "name": "Honey 1/2 Gallon",
-        "price": 30,
-        "quantity": 2,
-        "unit": "1/2 gallon",
-        "category": "misc"
-      },
-      {
-        "productId": "12",
-        "name": "Honey 16oz",
-        "price": 14,
-        "quantity": 2,
-        "unit": "16oz jar",
-        "category": "misc"
-      }
-    ],
-    "total": 88,
-    "pickupLocation": "Ashburn",
-    "phone": "",
-    "notes": "",
-    "status": "delivered",
-    "createdAt": "2025-12-05T04:50:25.110Z",
-    "updatedAt": "2025-12-05T17:25:24.086Z"
-  },
-  {
-    "id": "sam_12052025_1223",
-    "userId": "1764888441796",
-    "userName": "sam",
-    "userEmail": "sam@gmail.com",
-    "items": [
-      {
-        "productId": "1",
-        "name": "Butter",
-        "price": 8,
-        "quantity": 3,
-        "unit": "lb",
         "category": "dairy"
       },
       {
@@ -355,7 +20,103 @@
         "quantity": 1,
         "unit": "lb",
         "category": "dairy"
-      },
+      }
+    ],
+    "total": 22,
+    "pickupLocation": "Ashburn",
+    "phone": "",
+    "notes": "",
+    "status": "delivered",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-14T21:23:59.759Z",
+    "updatedAt": "2025-12-14T22:52:54.425Z"
+  },
+  {
+    "id": "Satish_12142025_1648",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "items": [
+      {
+        "productId": "2",
+        "name": "Paneer",
+        "price": 7,
+        "quantity": 1,
+        "unit": "lb",
+        "category": "dairy"
+      }
+    ],
+    "total": 7,
+    "pickupLocation": "Ashburn",
+    "phone": "",
+    "notes": "",
+    "status": "hold",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-14T21:48:20.412Z",
+    "holdNote": "with Pravin",
+    "holdWith": "with Pravin",
+    "updatedAt": "2025-12-14T22:53:41.184Z"
+  },
+  {
+    "id": "Satish_12142025_1702",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "items": [
+      {
+        "productId": "18",
+        "name": "Red Onions",
+        "price": 2.25,
+        "quantity": 1,
+        "unit": "lb",
+        "category": "vegetables"
+      }
+    ],
+    "total": 2.25,
+    "pickupLocation": "Centerville",
+    "phone": "",
+    "notes": "",
+    "status": "delivered",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-14T22:02:14.667Z",
+    "updatedAt": "2025-12-16T02:08:34.322Z"
+  },
+  {
+    "id": "Satish_12142025_1705",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "items": [
+      {
+        "productId": "5",
+        "name": "A1 Jersey Milk",
+        "price": 10,
+        "quantity": 1,
+        "unit": "gallon",
+        "category": "dairy"
+      }
+    ],
+    "total": 10,
+    "pickupLocation": "Ashburn",
+    "phone": "",
+    "notes": "",
+    "status": "hold",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-14T22:05:55.269Z",
+    "holdNote": "collect with Vimala Ji",
+    "holdWith": "collect with Vimala Ji",
+    "updatedAt": "2025-12-16T02:12:22.667Z"
+  },
+  {
+    "id": "Satish_12142025_1706",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "items": [
       {
         "productId": "3",
         "name": "A1 Regular Milk",
@@ -365,11 +126,207 @@
         "category": "dairy"
       }
     ],
-    "total": 38,
+    "total": 7,
     "pickupLocation": "Ashburn",
     "phone": "",
     "notes": "",
     "status": "submitted",
-    "createdAt": "2025-12-05T17:23:33.082Z"
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-14T22:06:43.142Z"
+  },
+  {
+    "id": "Satish_12142025_1709",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "items": [
+      {
+        "productId": "3",
+        "name": "A1 Regular Milk",
+        "price": 7,
+        "quantity": 1,
+        "unit": "gallon",
+        "category": "dairy"
+      }
+    ],
+    "total": 7,
+    "pickupLocation": "Ashburn",
+    "phone": "",
+    "notes": "",
+    "status": "submitted",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-14T22:09:09.168Z"
+  },
+  {
+    "id": "Satish_12142025_1718",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "items": [
+      {
+        "productId": "12",
+        "name": "Honey 16oz",
+        "price": 14,
+        "quantity": 1,
+        "unit": "16oz jar",
+        "category": "misc"
+      },
+      {
+        "productId": "7",
+        "name": "A2 Jersey Milk",
+        "price": 12,
+        "quantity": 1,
+        "unit": "gallon",
+        "category": "dairy"
+      }
+    ],
+    "total": 26,
+    "creditApplied": 0,
+    "debitApplied": 3,
+    "finalAmount": 29,
+    "pickupLocation": "Ashburn",
+    "phone": "",
+    "notes": "",
+    "status": "submitted",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-14T22:18:25.004Z"
+  },
+  {
+    "id": "Satish_12142025_1728",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "items": [
+      {
+        "productId": "24",
+        "name": "Beets",
+        "price": 2,
+        "quantity": 1,
+        "unit": "lb",
+        "category": "vegetables"
+      }
+    ],
+    "total": 2,
+    "creditApplied": 2,
+    "debitApplied": 3,
+    "finalAmount": 3,
+    "pickupLocation": "Ashburn",
+    "phone": "",
+    "notes": "",
+    "status": "submitted",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-14T22:28:01.208Z"
+  },
+  {
+    "id": "Satish_12142025_1924",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "items": [
+      {
+        "productId": "18",
+        "name": "Red Onions",
+        "price": 2.25,
+        "quantity": 1,
+        "unit": "lb",
+        "category": "vegetables"
+      }
+    ],
+    "total": 2.25,
+    "creditApplied": 0,
+    "debitApplied": 0,
+    "finalAmount": 2.25,
+    "pickupLocation": "Ashburn",
+    "phone": "",
+    "notes": "",
+    "status": "submitted",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-15T00:24:30.264Z"
+  },
+  {
+    "id": "sam_12142025_1953",
+    "userId": "1764888441796",
+    "userName": "sam",
+    "userEmail": "sam@gmail.com",
+    "items": [
+      {
+        "productId": "7",
+        "name": "A2 Jersey Milk",
+        "price": 12,
+        "quantity": 1,
+        "unit": "gallon",
+        "category": "dairy"
+      }
+    ],
+    "total": 12,
+    "creditApplied": 0,
+    "debitApplied": 10,
+    "finalAmount": 22,
+    "pickupLocation": "Centerville",
+    "phone": "",
+    "notes": "",
+    "status": "submitted",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-15T00:53:08.704Z"
+  },
+  {
+    "id": "AdminUser_12152025_2125",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@indomen.com",
+    "items": [
+      {
+        "productId": "7",
+        "name": "A2 Jersey Milk",
+        "price": 12,
+        "quantity": 1,
+        "unit": "gallon",
+        "category": "dairy"
+      }
+    ],
+    "total": 12,
+    "creditApplied": 0,
+    "debitApplied": 0,
+    "finalAmount": 12,
+    "pickupLocation": "Ashburn",
+    "phone": "",
+    "notes": "",
+    "status": "submitted",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-16T02:25:09.977Z"
+  },
+  {
+    "id": "sam_12152025_2126",
+    "userId": "1764888441796",
+    "userName": "sam",
+    "userEmail": "sam@gmail.com",
+    "items": [
+      {
+        "productId": "15",
+        "name": "Gala Apples",
+        "price": 9,
+        "quantity": 1,
+        "unit": "dozen",
+        "category": "fruits"
+      }
+    ],
+    "total": 9,
+    "creditApplied": 0,
+    "debitApplied": 10,
+    "finalAmount": 19,
+    "pickupLocation": "Ashburn",
+    "phone": "",
+    "notes": "",
+    "status": "submitted",
+    "paymentId": "demo_payment_id",
+    "paymentMethod": "stripe",
+    "createdAt": "2025-12-16T02:26:32.615Z"
   }
 ]

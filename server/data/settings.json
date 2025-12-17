@@ -1,9 +1,9 @@
 {
-  "acceptingOrders": false,
+  "acceptingOrders": true,
   "pickupAddress": "Indomen Connection, 123 Farm Road, Countryside, PA 12345",
   "pickupHours": "Thursday 3:00 PM - 7:00 PM",
   "bannerMessage": "Site work in progress....",
-  "bannerType": "error",
-  "bannerActive": true,
-  "updatedAt": "2025-12-05T17:29:31.528Z"
+  "bannerType": "info",
+  "bannerActive": false,
+  "updatedAt": "2025-12-16T02:25:38.730Z"
 }

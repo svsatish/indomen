@@ -49,13 +49,37 @@ async function importData() {
             userMap[user.email] = user._id;
         }
 
-        // Update orders with proper user IDs
+        // Map old product IDs to new MongoDB IDs
+        const productMap = {};
+        for (const product of products) {
+            // Assuming products in JSON have an 'id' field
+            const oldId = product.id || product._id.toString();
+            productMap[oldId] = product._id;
+        }
+
+        // Update orders with proper user IDs and product IDs
         const ordersToImport = ordersData.map(order => {
             const userId = userMap[order.userEmail] || users[0]._id;
+
+            // Map productIds in items
+            const updatedItems = order.items.map(item => ({
+                ...item,
+                productId: productMap[item.productId] || products[0]._id
+            }));
+
+            // Fix status enum - map 'hold' to 'pending'
+            let status = order.status || 'pending';
+            if (status === 'hold') {
+                status = 'pending';
+            }
+
             return {
                 ...order,
                 userId,
-                placedBy: userId
+                placedBy: userId,
+                items: updatedItems,
+                status,
+                paymentStatus: order.paymentStatus || 'pending'
             };
         });
 

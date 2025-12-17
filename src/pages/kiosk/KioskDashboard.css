@@ -122,10 +122,23 @@
     background: var(--color-error);
 }
 
+.filters-row {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filters-row .form-group {
+    margin-bottom: 0;
+}
+
 .orders-list {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    width: 100%;
 }
 
 /* Order Card Styles */
@@ -133,21 +146,21 @@
     background: var(--color-surface);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
-    /* Removed overflow: hidden to prevent clipping issues */
     transition: box-shadow var(--transition-base);
     border-left: 4px solid var(--color-border);
     position: relative;
     display: block;
-    /* Revert to standard block flow */
     width: 100%;
-    margin-bottom: 0;
-    /* Reset margin */
 }
 
 .order-list-item.expanded {
     margin-bottom: var(--space-lg);
     box-shadow: var(--shadow-lg);
     z-index: 10;
+}
+
+.order-list-item.submitted {
+    border-left-color: var(--color-info);
 }
 
 .order-list-item.confirmed {
@@ -173,8 +186,9 @@
 /* Order Summary Header */
 .order-summary {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding: var(--space-lg);
     cursor: pointer;
     user-select: none;
@@ -182,7 +196,7 @@
     width: 100%;
     box-sizing: border-box;
     border-radius: var(--radius-lg);
-    /* Apply radius here since overflow is gone */
+    gap: var(--space-md);
 }
 
 /* Fix radius when expanded */
@@ -192,23 +206,22 @@
 }
 
 .order-summary:hover {
-    background: var(--color-surface-hover);
+    background: var(--color-bg-secondary);
 }
 
 .order-summary-left {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     gap: var(--space-md);
     flex: 1;
     min-width: 0;
-    /* Enable truncation */
 }
 
 .expand-icon {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
     transition: transform var(--transition-fast);
-    margin-top: 2px;
     flex-shrink: 0;
 }
 
@@ -219,9 +232,8 @@
 .order-info {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: 4px;
     min-width: 0;
-    /* Enable truncation */
     flex: 1;
 }
 
@@ -230,22 +242,25 @@
     font-size: var(--text-lg);
     font-weight: 700;
     color: var(--color-text);
-    white-space: normal;
-    word-break: break-word;
-    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
 }
 
 .order-meta {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
-    white-space: normal;
-    word-break: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 1.4;
 }
 
 .order-summary-right {
     flex-shrink: 0;
-    margin-left: var(--space-md);
+    display: flex;
+    align-items: center;
 }
 
 .status-badge {
@@ -256,20 +271,68 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status-badge.submitted {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-badge.confirmed {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-badge.hold {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.status-badge.delivered {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.status-badge.pending {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+/* Dark theme status badges */
+[data-theme="dark"] .status-badge.submitted,
+[data-theme="dark"] .status-badge.confirmed {
+    background: rgba(59, 130, 246, 0.2);
+    color: #93c5fd;
+}
+
+[data-theme="dark"] .status-badge.hold {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+[data-theme="dark"] .status-badge.delivered {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+}
+
+[data-theme="dark"] .status-badge.pending {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fcd34d;
 }
 
 /* Expanded Details Section */
 .order-details-expanded {
     padding: var(--space-md) var(--space-lg) var(--space-lg) var(--space-lg);
     border-top: 1px solid var(--color-border-light);
-    background: var(--color-surface-subtle);
+    background: var(--color-bg-secondary);
     width: 100%;
     box-sizing: border-box;
-    /* Removed animation to rule out transform issues */
     border-bottom-left-radius: var(--radius-lg);
     border-bottom-right-radius: var(--radius-lg);
     display: block;
-    /* Ensure block display */
 }
 
 @keyframes slideDown {
@@ -358,7 +421,7 @@
     flex-shrink: 0;
     font-weight: 600;
     background: var(--color-surface);
-    padding: 2px 6px;
+    padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-sm);
 }
 
