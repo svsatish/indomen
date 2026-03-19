@@ -31,7 +31,7 @@
 }
 
 .empty-cart-icon {
-    font-size: 6rem;
+    font-size: calc(var(--text-5xl) * 1.7);
     margin-bottom: var(--space-lg);
     opacity: 0.5;
 }

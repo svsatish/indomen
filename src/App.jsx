@@ -3,9 +3,11 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { SettingsProvider } from './context/SettingsContext';
+import { CacheProvider } from './context/CacheContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import Header from './components/Header';
 import SiteBanner from './components/SiteBanner';
+import NotificationBanner from './components/NotificationBanner';
 import Toast from './components/Toast';
 
 // Pages
@@ -17,6 +19,7 @@ import Checkout from './pages/Checkout';
 import OrderConfirmation from './pages/OrderConfirmation';
 import Orders from './pages/Orders';
 import Login from './pages/Login';
+import PayBalance from './pages/PayBalance';
 
 // Admin Pages
 import Dashboard from './pages/admin/Dashboard';
@@ -25,6 +28,8 @@ import OrderManagement from './pages/admin/OrderManagement';
 import UserManagement from './pages/admin/UserManagement';
 import AuditLog from './pages/admin/AuditLog';
 import Settings from './pages/admin/Settings';
+import Analytics from './pages/admin/Analytics';
+import AccountBalances from './pages/admin/AccountBalances';
 
 // Kiosk Pages
 import KioskDashboard from './pages/kiosk/KioskDashboard';
@@ -34,14 +39,16 @@ function App() {
     <BrowserRouter>
       <ThemeProvider>
         <SettingsProvider>
-          <AuthProvider>
-            <CartProvider>
-              <div className="app">
-                <Toast />
-                <SiteBanner />
-                <Header />
-                <main>
-                  <Routes>
+          <CacheProvider>
+            <AuthProvider>
+              <CartProvider>
+                <div className="app">
+                  <Toast />
+                  <SiteBanner />
+                  <NotificationBanner />
+                  <Header />
+                  <main>
+                    <Routes>
                     {/* Public Routes */}
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
@@ -97,12 +104,20 @@ function App() {
                         </ProtectedRoute>
                       }
                     />
+                    <Route
+                      path="/pay-balance"
+                      element={
+                        <ProtectedRoute>
+                          <PayBalance />
+                        </ProtectedRoute>
+                      }
+                    />
 
-                    {/* Kiosk Route */}
+                    {/* Kiosk Route - Accessible by admin and kiosk users */}
                     <Route
                       path="/kiosk"
                       element={
-                        <ProtectedRoute>
+                        <ProtectedRoute kioskOrAdmin>
                           <KioskDashboard />
                         </ProtectedRoute>
                       }
@@ -157,15 +172,32 @@ function App() {
                         </ProtectedRoute>
                       }
                     />
+                    <Route
+                      path="/admin/analytics"
+                      element={
+                        <ProtectedRoute adminOnly>
+                          <Analytics />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/admin/account-balances"
+                      element={
+                        <ProtectedRoute adminOnly>
+                          <AccountBalances />
+                        </ProtectedRoute>
+                      }
+                    />
                   </Routes>
                 </main>
               </div>
             </CartProvider>
           </AuthProvider>
-        </SettingsProvider>
-      </ThemeProvider>
-    </BrowserRouter>
-  );
+        </CacheProvider>
+      </SettingsProvider>
+    </ThemeProvider>
+  </BrowserRouter>
+);
 }
 
 export default App;

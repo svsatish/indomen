@@ -1,44 +1,75 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
+import SearchFilters from '../components/SearchFilters';
+import { useCache } from '../context/CacheContext';
 import './Products.css';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
-    const [filteredProducts, setFilteredProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false); // Changed to false
+    const [initialLoad, setInitialLoad] = useState(true);
+    const [resultsCount, setResultsCount] = useState(0);
     const [searchParams] = useSearchParams();
+    const { getCachedData, setCachedData } = useCache();
 
     const category = searchParams.get('category');
 
     useEffect(() => {
-        fetchProducts();
-    }, []);
+        const initialFilters = category ? { category } : {};
+        fetchProducts(initialFilters);
+    }, [category]);
 
-    useEffect(() => {
-        if (category) {
-            setFilteredProducts(products.filter(p => p.category === category));
-        } else {
-            setFilteredProducts(products);
+    const fetchProducts = async (filters = {}) => {
+        // Generate cache key
+        const cacheKey = `products_${JSON.stringify(filters)}`;
+
+        // Check cache first
+        const cachedData = getCachedData(cacheKey);
+        if (cachedData) {
+            setProducts(cachedData.products);
+            setResultsCount(cachedData.count);
+            setInitialLoad(false);
+            return;
         }
-    }, [category, products]);
 
-    const fetchProducts = async () => {
+        setLoading(true);
         try {
-            const response = await fetch('/api/products');
+            // Build query string
+            const queryParams = new URLSearchParams();
+            Object.entries(filters).forEach(([key, value]) => {
+                if (value !== undefined && value !== '') {
+                    queryParams.append(key, value);
+                }
+            });
+
+            const response = await fetch(`/api/search/search?${queryParams}`);
             const data = await response.json();
-            setProducts(data);
-            setFilteredProducts(data);
+
+            if (data.success) {
+                setProducts(data.products);
+                setResultsCount(data.count);
+
+                // Cache the results
+                setCachedData(cacheKey, {
+                    products: data.products,
+                    count: data.count
+                });
+            }
         } catch (error) {
             console.error('Error fetching products:', error);
         } finally {
             setLoading(false);
+            setInitialLoad(false);
         }
     };
 
-    const categories = ['dairy', 'eggs', 'juices', 'bread', 'vegetables', 'fruits', 'misc'];
+    const handleSearch = (filters) => {
+        fetchProducts(filters);
+    };
 
-    if (loading) {
+    // Only show full-page loading on initial load
+    if (initialLoad && loading) {
         return <div className="loading">Loading products...</div>;
     }
 
@@ -50,33 +81,30 @@ const Products = () => {
                     <p className="text-secondary">Fresh, quality products delivered weekly</p>
                 </div>
 
-                {!category && (
-                    <div className="products-filters">
-                        <a
-                            href="/products"
-                            className={`filter-btn ${!category ? 'active' : ''}`}
-                        >
-                            All
-                        </a>
-                        {categories.map(cat => (
-                            <a
-                                key={cat}
-                                href={`/products?category=${cat}`}
-                                className={`filter-btn ${category === cat ? 'active' : ''}`}
-                            >
-                                {cat.charAt(0).toUpperCase() + cat.slice(1)}
-                            </a>
-                        ))}
+                <SearchFilters onSearch={handleSearch} />
+
+                {/* Show inline loading indicator for subsequent loads */}
+                {loading && !initialLoad && (
+                    <div className="inline-loading">
+                        <div className="loading-spinner"></div>
+                        <span>Updating results...</span>
                     </div>
                 )}
 
-                {filteredProducts.length === 0 ? (
+                <div className="results-info">
+                    <p>
+                        Showing <strong>{resultsCount}</strong> product{resultsCount !== 1 ? 's' : ''}
+                    </p>
+                </div>
+
+                {products.length === 0 ? (
                     <div className="no-products">
-                        <p>No products found in this category.</p>
+                        <p>No products found matching your criteria.</p>
+                        <p className="text-secondary">Try adjusting your filters or search query.</p>
                     </div>
                 ) : (
                     <div className="products-grid">
-                        {filteredProducts.map(product => (
+                        {products.map(product => (
                             <ProductCard key={product.id} product={product} />
                         ))}
                     </div>

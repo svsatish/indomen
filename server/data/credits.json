@@ -1,0 +1,121 @@
+[
+  {
+    "id": "DEBIT_1765166742976",
+    "userId": "1764888441796",
+    "userEmail": "sam@gmail.com",
+    "userName": "sam",
+    "type": "debit",
+    "originalAmount": 10,
+    "remainingAmount": 0,
+    "reason": "Additional purchases at pickup",
+    "relatedOrderId": "sam_12072025_1538",
+    "status": "paid",
+    "issuedBy": "1",
+    "issuedByName": "Admin User",
+    "createdAt": "2025-12-08T04:05:42.976Z",
+    "expiresAt": null,
+    "usageHistory": [
+      {
+        "amount": 10,
+        "paymentId": "demo_payment_id",
+        "paymentMethod": "stripe",
+        "paidAt": "2025-12-15T00:53:08.692Z"
+      }
+    ]
+  },
+  {
+    "id": "DEBIT_1765747590846",
+    "userId": "1765747328062",
+    "userEmail": "satish@gmail.com",
+    "userName": "Satish",
+    "type": "debit",
+    "originalAmount": 3,
+    "remainingAmount": 0,
+    "reason": "Additional purchases at pickup",
+    "relatedOrderId": "Satish_12142025_1623",
+    "status": "paid",
+    "issuedBy": "1",
+    "issuedByName": "Admin User",
+    "createdAt": "2025-12-14T21:26:30.846Z",
+    "expiresAt": null,
+    "usageHistory": [
+      {
+        "amount": 3,
+        "paymentId": "demo_payment_id",
+        "paymentMethod": "stripe",
+        "paidAt": "2025-12-14T22:18:24.994Z"
+      }
+    ]
+  },
+  {
+    "id": "CREDIT_1765751185570",
+    "userId": "1765747328062",
+    "userEmail": "satish@gmail.com",
+    "userName": "Satish",
+    "type": "credit",
+    "originalAmount": 2,
+    "remainingAmount": 0,
+    "reason": "Product unavailable - store credit",
+    "relatedOrderId": "Satish_12142025_1718",
+    "status": "used",
+    "issuedBy": "1",
+    "issuedByName": "Admin User",
+    "createdAt": "2025-12-14T22:26:25.570Z",
+    "expiresAt": null,
+    "usageHistory": [
+      {
+        "amount": 2,
+        "orderId": "pending",
+        "usedAt": "2025-12-14T22:28:01.180Z"
+      }
+    ]
+  },
+  {
+    "id": "DEBIT_1765751199424",
+    "userId": "1765747328062",
+    "userEmail": "satish@gmail.com",
+    "userName": "Satish",
+    "type": "debit",
+    "originalAmount": 3,
+    "remainingAmount": 0,
+    "reason": "Additional purchases at pickup",
+    "relatedOrderId": "Satish_12142025_1709",
+    "status": "paid",
+    "issuedBy": "1",
+    "issuedByName": "Admin User",
+    "createdAt": "2025-12-14T22:26:39.424Z",
+    "expiresAt": null,
+    "usageHistory": [
+      {
+        "amount": 3,
+        "paymentId": "demo_payment_id",
+        "paymentMethod": "stripe",
+        "paidAt": "2025-12-14T22:28:01.191Z"
+      }
+    ]
+  },
+  {
+    "id": "DEBIT_1765850993858",
+    "userId": "1764888441796",
+    "userEmail": "sam@gmail.com",
+    "userName": "sam",
+    "type": "debit",
+    "originalAmount": 10,
+    "remainingAmount": 0,
+    "reason": "bought 1g milk extra",
+    "relatedOrderId": "sam_12142025_1953",
+    "status": "paid",
+    "issuedBy": "1",
+    "issuedByName": "Admin User",
+    "createdAt": "2025-12-16T02:09:53.858Z",
+    "expiresAt": null,
+    "usageHistory": [
+      {
+        "amount": 10,
+        "paymentId": "demo_payment_id",
+        "paymentMethod": "stripe",
+        "paidAt": "2025-12-16T02:26:32.578Z"
+      }
+    ]
+  }
+]

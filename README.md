@@ -1,5 +1,5 @@
-# 🌾 Indomen Connection - E-Commerce Platform
 
+# 🌾 Farm to Table - Farm Fresh E-Commerce Platform
 A modern full-stack platform built with React (Vite) and Node.js/Express that enables customers to receive fresh dairy and produce sourced weekly from Mennonite and Amish farms. We transport and coordinate delivery—we are not resellers.
 
 > 📘 **User Guide**: Check out [demo.md](./demo.md) for a visual walkthrough of the application features.
@@ -7,32 +7,65 @@ A modern full-stack platform built with React (Vite) and Node.js/Express that en
 ## ✨ Features
 
 ### Customer Features
-- **Browse Products** by category (Dairy, Eggs, Juices, Bread, Vegetables, Fruits)
-- **Shopping Cart** with persistent storage
+- **Browse Products** by category (Dairy, Eggs, Juices, Bread, Vegetables, Fruits, Misc)
+- **Shopping Cart** with persistent storage and real-time sidebar
 - **User Authentication** (admin-created accounts only)
-- **Checkout Flow** with Stripe payment instructions
-- **Order History** and tracking
-- **Responsive Design** - mobile-friendly interface
-- **SEO Optimized** with proper meta tags and semantic HTML
+- **Secure Checkout** with Stripe payment integration (Cards, Apple Pay, Google Pay, Link)
+- **Order History** and tracking with "Upcoming Weekend" organization
+- **Pay Outstanding Balance** - Pay any owed amounts without placing an order
+- **Store Credits** - Apply credits to future orders
+- **Responsive Design** - Mobile-friendly interface with dark/light theme support
+- **Advanced Search & Filtering** - Search by keyword, filter by category, price, availability
+- **Real-time Cart Sidebar** - View cart items without leaving the page
+- **WhatsApp Integration** - Quick contact for order inquiries
 
 ### Admin Features
-- **Dashboard** with statistics and quick actions
-- **Product Management** - Add, edit, delete products and manage inventory
-- **Order Management** - View and update order status and payment confirmation
-- **User Management** - Create customer accounts
-- **Notices** - Post announcements for customers
+- **Dashboard** with statistics, quick actions, and real-time metrics
+- **Product Management** - Add, edit, delete products with image upload
+- **Order Management** - View and update order status, filter by location/status
+- **User Management** - Create and manage customer/kiosk accounts
+- **Site Settings** - Banner management, order acceptance toggle
+- **Sales Analytics Dashboard** - Track sales, generate pickup lists, view trends by date
+- **Account Balances** - View all customer credit/debit balances in one place
+- **Credit/Debit Management** - Issue store credits or charge customers with automatic notifications
+- **Audit Log** - Track all admin actions for accountability
+- **Kiosk Access** - Admin users can access and use all kiosk features
+
+### Kiosk Features (For Pickup Fulfillment)
+- **Order Pickup Dashboard** - Streamlined interface for order fulfillment
+- **Search & Filter** - Find orders by name, email, location, or status
+- **Quick Actions** - Mark orders as delivered or on hold
+- **Auto-refresh** - Real-time order updates every 30 seconds
+- **WhatsApp Quick Contact** - Message customers directly
+
+### Payment System
+- **Stripe Integration** - Secure payments with Cards, Apple Pay, Google Pay, Link
+- **PayPal Support** - Enable through Stripe Dashboard
+- **Amazon Pay Support** - Enable through Stripe Dashboard
+- **Store Credits** - Apply credits at checkout
+- **Balance Payments** - Pay outstanding balances without ordering
+- **Price Security** - Server-side validation prevents price manipulation
+
+### Technical Features
+- **MongoDB Database** - Production-ready with auto-backups
+- **Session Persistence** - Stay logged in across page refreshes
+- **Image Upload** - Upload and optimize product images
+- **Data Caching** - Fast page loads with intelligent caching
+- **Dark/Light Theme** - User preference saved locally
+- **Modern Typography** - Space Grotesk font family
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js (v16 or higher)
 - npm or yarn
+- MongoDB Atlas account (FREE) - [Sign up here](https://cloud.mongodb.com)
 
 ### Installation
 
 1. **Clone or navigate to the project directory**
    ```bash
-   cd indomen
+   cd freshfarm
    ```
 
 2. **Install frontend dependencies**
@@ -44,7 +77,18 @@ A modern full-stack platform built with React (Vite) and Node.js/Express that en
    ```bash
    cd server
    npm install
-   cd ..
+   ```
+
+4. **Configure Environment**
+   ```bash
+   cd server
+   cp .env.example .env
+   # Edit .env with your MongoDB and Stripe credentials
+   ```
+
+5. **Migrate Data to Database** (if using fresh MongoDB)
+   ```bash
+   npm run migrate
    ```
 
 ### Running the Application
@@ -67,94 +111,91 @@ A modern full-stack platform built with React (Vite) and Node.js/Express that en
 ## 👤 Demo Accounts
 
 ### Admin Account
-- **Email:** admin@indomen.com
+- **Email:** admin@freshfarm.com
 - **Password:** password123
-- **Access:** Full admin panel access
+- **Access:** Full admin panel + kiosk access
 
 ### Customer Accounts
-- **Email:** john@example.com
-- **Password:** password123
-
-- **Email:** sarah@example.com
+- **Email:** john@example.com / sarah@example.com
 - **Password:** password123
 
 ### Kiosk Account
 - **Email:** kiosk@freshfarm.com
 - **Password:** kiosk123
-- **Access:** Kiosk Dashboard for order fulfillment
+- **Access:** Kiosk Dashboard for order fulfillment only
 
 ## 📁 Project Structure
 
 ```
-indomen/
+freshfarm/
 ├── server/                 # Backend (Node.js/Express)
 │   ├── server.js          # Main server file
+│   ├── config/            # Database configuration
+│   ├── models/            # MongoDB models
 │   ├── routes/            # API routes
-│   │   ├── auth.js       # Authentication endpoints
-│   │   ├── products.js   # Product CRUD operations
+│   │   ├── auth.js       # Authentication
+│   │   ├── products.js   # Product CRUD
 │   │   ├── orders.js     # Order management
-│   │   └── admin.js      # Admin-only endpoints
+│   │   ├── credits.js    # Credit/debit system
+│   │   ├── payment.js    # Stripe/PayPal integration
+│   │   ├── analytics.js  # Sales analytics
+│   │   ├── settings.js   # Site settings
+│   │   ├── upload.js     # Image upload
+│   │   └── admin.js      # Admin operations
 │   ├── middleware/        # Express middleware
-│   │   └── auth.js       # Auth & admin checks
-│   └── data/             # JSON data storage
-│       ├── users.json    # User accounts
-│       ├── products.json # Product catalog
-│       ├── orders.json   # Customer orders
-│       └── notices.json  # Announcements
+│   └── data/             # JSON data (backup/migration)
 │
 ├── src/                   # Frontend (React)
-│   ├── App.jsx           # Main app component with routing
-│   ├── index.css         # Design system & global styles
+│   ├── App.jsx           # Main app with routing
+│   ├── index.css         # Design system
 │   ├── context/          # React Context providers
 │   │   ├── AuthContext.jsx
-│   │   └── CartContext.jsx
+│   │   ├── CartContext.jsx
+│   │   ├── ThemeContext.jsx
+│   │   ├── SettingsContext.jsx
+│   │   └── CacheContext.jsx
 │   ├── components/       # Reusable components
 │   │   ├── Header.jsx
+│   │   ├── CartSidebar.jsx
+│   │   ├── MultiPayment.jsx
 │   │   ├── ProductCard.jsx
-│   │   ├── ProtectedRoute.jsx
-│   ├── pages/            # Page components
-│   │   ├── Home.jsx
-│   │   ├── Products.jsx
-│   │   ├── Cart.jsx
-│   │   ├── Checkout.jsx
-│   │   ├── Orders.jsx
-│   │   ├── Login.jsx
-│   │   ├── OrderConfirmation.jsx
-│   │   └── admin/        # Admin pages
-│   │       ├── Dashboard.jsx
-│   │       ├── ProductManagement.jsx
-│   │       ├── OrderManagement.jsx
-│   │       └── UserManagement.jsx
-│   └── public/
-│       └── images/       # Product images
+│   │   └── ...
+│   └── pages/            # Page components
+│       ├── Home.jsx
+│       ├── Products.jsx
+│       ├── Checkout.jsx
+│       ├── PayBalance.jsx
+│       ├── Orders.jsx
+│       ├── admin/        # Admin pages
+│       │   ├── Dashboard.jsx
+│       │   ├── Analytics.jsx
+│       │   ├── AccountBalances.jsx
+│       │   └── ...
+│       └── kiosk/        # Kiosk pages
+│           └── KioskDashboard.jsx
 │
-└── package.json          # Frontend dependencies
+└── public/images/        # Product images
 ```
 
 ## 🎨 Design System
 
-The application uses a custom design system with:
-- **Color Palette:** Warm, earthy tones (oranges, greens, browns)
-- **Typography:** Inter (sans-serif) + Playfair Display (headings)
+- **Typography:** Space Grotesk (modern, clean)
+- **Color Palette:** Earthy tones with green primary accent
 - **Components:** Buttons, cards, forms, badges, alerts
-- **Animations:** Fade-in, slide-in, scale effects
-- **Responsive:** Mobile-first approach with breakpoints
+- **Themes:** Light and Dark mode support
+- **Responsive:** Mobile-first with tablet/desktop breakpoints
 
 ## 💳 Payment Integration
 
-The application uses **Stripe** for secure credit card payments:
-- **Stripe Elements** for secure UI components.
-- **Payment Intents** for server-side security.
-- **Automatic Order Creation** upon successful payment.
-- **Demo Mode**: Includes a simulation button if API keys are not configured.
+See [PAYMENT_INTEGRATION.md](./PAYMENT_INTEGRATION.md) for detailed setup instructions.
 
-## 🔐 Authentication
-
-- **No self-registration** - Admin creates all user accounts
-- **Session-based authentication** using express-session
-- **Password hashing** with bcryptjs
-- **Protected routes** for authenticated users
-- **Admin-only routes** for management features
+**Supported Methods:**
+- Credit/Debit Cards (Visa, Mastercard, Amex)
+- Apple Pay (Safari/iOS)
+- Google Pay (Chrome/Android)
+- Link (Stripe's fast checkout)
+- PayPal (enable in Stripe Dashboard)
+- Amazon Pay (enable in Stripe Dashboard)
 
 ## 📊 API Endpoints
 
@@ -163,96 +204,82 @@ The application uses **Stripe** for secure credit card payments:
 - `POST /api/auth/logout` - User logout
 - `GET /api/auth/session` - Check current session
 
-### Products (Public)
-- `GET /api/products` - Get all products (optional ?category filter)
+### Products
+- `GET /api/products` - List products (with filters)
 - `GET /api/products/:id` - Get single product
-
-### Products (Admin Only)
-- `POST /api/products` - Create product
-- `PUT /api/products/:id` - Update product
-- `DELETE /api/products/:id` - Delete product
+- `POST /api/products` - Create product (admin)
+- `PUT /api/products/:id` - Update product (admin)
+- `DELETE /api/products/:id` - Delete product (admin)
 
 ### Orders
-- `GET /api/orders` - Get orders (user's own or all for admin)
-- `POST /api/orders` - Create new order
-- `PUT /api/orders/:id` - Update order status (admin only)
+- `GET /api/orders` - Get orders
+- `POST /api/orders` - Create order
+- `PUT /api/orders/:id` - Update order status
 
-### Admin
-- `GET /api/admin/users` - List all users
-- `POST /api/admin/users` - Create new user
-- `PUT /api/admin/users/:id` - Update user
-- `GET /api/admin/notices` - Get notices
-- `POST /api/admin/notices` - Create notice
-- `DELETE /api/admin/notices/:id` - Delete notice
+### Credits
+- `GET /api/credits/balance` - Get user's credit/debit balance
+- `GET /api/credits/all-balances` - Get all users' balances (admin)
+- `POST /api/credits/issue` - Issue credit/debit (admin)
+- `POST /api/credits/apply` - Apply credit to order
+- `POST /api/credits/pay-debit` - Pay outstanding balance
+
+### Payment
+- `POST /api/payment/create-payment-intent` - Create Stripe payment
+- `GET /api/payment/payment-methods` - Get available methods
+- `POST /api/payment/paypal/create-order` - Create PayPal order
+- `POST /api/payment/paypal/capture-order` - Capture PayPal payment
+
+### Analytics
+- `GET /api/analytics/dashboard` - Dashboard stats
+- `GET /api/analytics/pickup-list` - Pickup list by date
+
+### Settings
+- `GET /api/settings` - Get site settings
+- `PUT /api/settings` - Update settings (admin)
 
 ## 🚢 Deployment
 
 ### Production Build
-
-1. **Build the frontend**
-   ```bash
-   npm run build
-   ```
-
-2. **Set environment variables**
-   ```bash
-   export NODE_ENV=production
-   export PORT=3000
-   ```
-
-3. **Start the server**
-   ```bash
-   cd server
-   npm start
-   ```
-
-The server will serve the built frontend from the `dist` directory.
+```bash
+npm run build
+cd server
+NODE_ENV=production npm start
+```
 
 ### Environment Variables
+```env
+# Database
+MONGODB_URI=mongodb+srv://...
 
-Create a `.env` file in the server directory:
-```
-NODE_ENV=production
+# Server
 PORT=3000
-SESSION_SECRET=your-secret-key-here
+SESSION_SECRET=your-secret-key
+
+# Stripe
+STRIPE_SECRET_KEY=sk_live_...
+
+# PayPal (optional)
+PAYPAL_CLIENT_ID=...
+PAYPAL_CLIENT_SECRET=...
 ```
 
-## 🛠️ Technologies Used
+## 📝 Recent Updates
 
-### Frontend
-- **React 18** - UI library
-- **Vite** - Build tool and dev server
-- **React Router** - Client-side routing
-- **Context API** - State management
-- **CSS3** - Styling with custom properties
-
-### Backend
-- **Node.js** - Runtime environment
-- **Express** - Web framework
-- **express-session** - Session management
-- **bcryptjs** - Password hashing
-- **CORS** - Cross-origin resource sharing
-
-## 📝 Future Enhancements
-
-- [ ] Database integration (PostgreSQL/MongoDB)
-- [ ] Image upload functionality
-- [ ] Email notifications
-- [ ] Advanced search and filtering
-- [ ] Product reviews and ratings
-- [ ] Wishlist functionality
-- [ ] Multiple payment gateway options
-- [ ] Inventory alerts
-- [ ] Sales analytics dashboard
+- ✅ Multi-payment support (Stripe, PayPal, Amazon Pay)
+- ✅ Pay outstanding balance without ordering
+- ✅ Account balances dashboard for admin
+- ✅ Kiosk dashboard with order fulfillment
+- ✅ Dark/Light theme support
+- ✅ Real-time cart sidebar
+- ✅ Audit logging
+- ✅ Session persistence
+- ✅ Credit/Debit notification system
 
 ## 📄 License
 
 This project is for demonstration purposes.
 
-## 👥 Support
-
-For questions or issues, please contact the development team.
 
 ---
 
-**Built with ❤️ for Indomen Connection**
+**Built with ❤️ for Farm to Table**

@@ -38,7 +38,10 @@ const Dashboard = () => {
     const quickActions = [
         { title: 'Manage Products', path: '/admin/products', icon: '📦', colorClass: 'action-card-blue' },
         { title: 'View Orders', path: '/admin/orders', icon: '📋', colorClass: 'action-card-green' },
+        { title: 'Kiosk View', path: '/kiosk', icon: '🖥️', colorClass: 'action-card-indigo' },
         { title: 'Manage Users', path: '/admin/users', icon: '👥', colorClass: 'action-card-purple' },
+        { title: 'Account Balances', path: '/admin/account-balances', icon: '💰', colorClass: 'action-card-emerald' },
+        { title: 'Sales Analytics', path: '/admin/analytics', icon: '📊', colorClass: 'action-card-teal' },
         { title: 'Audit Trail', path: '/admin/audit-log', icon: '🔍', colorClass: 'action-card-orange' },
         { title: 'Site Settings', path: '/admin/settings', icon: '⚙️', colorClass: 'action-card-yellow' }
     ];

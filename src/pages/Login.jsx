@@ -36,7 +36,7 @@ const Login = () => {
                 <div className="login-card card">
                     <div className="login-header">
                         <h1>Welcome Back</h1>
-                        <p>Sign in to your Indomen Connection account</p>
+                        <p>Sign in to your Farm to Table account</p>
                     </div>
 
                     {error && (
@@ -86,7 +86,7 @@ const Login = () => {
                     <div className="login-footer">
                         <div className="demo-credentials">
                             <p><strong>Demo Accounts:</strong></p>
-                            <p>Admin: admin@indomen.com / password123</p>
+                            <p>Admin: admin@freshfarm.com / password123</p>
                             <p>Customer: john@example.com / password123</p>
                         </div>
                     </div>

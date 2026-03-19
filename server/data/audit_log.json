@@ -1,5 +1,491 @@
 [
   {
+    "id": "1770955065684",
+    "timestamp": "2026-02-13T03:57:45.684Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "ORDER_STATUS_UPDATED",
+    "details": {
+      "orderId": "sam_02122026_2257",
+      "previousStatus": "delivered",
+      "newStatus": "delivered"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765851992580",
+    "timestamp": "2025-12-16T02:26:32.580Z",
+    "userId": "1764888441796",
+    "userName": "sam",
+    "userEmail": "sam@gmail.com",
+    "action": "DEBIT_PAID",
+    "details": {
+      "amount": 10,
+      "paymentId": "demo_payment_id",
+      "paymentMethod": "stripe",
+      "paidDebits": [
+        {
+          "debitId": "DEBIT_1765850993858",
+          "amount": 10
+        }
+      ]
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765851142668",
+    "timestamp": "2025-12-16T02:12:22.668Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "ORDER_STATUS_UPDATED",
+    "details": {
+      "orderId": "Satish_12142025_1705",
+      "previousStatus": "hold",
+      "newStatus": "hold"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765850993861",
+    "timestamp": "2025-12-16T02:09:53.861Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "DEBIT_ISSUED",
+    "details": {
+      "entryId": "DEBIT_1765850993858",
+      "userId": "1764888441796",
+      "userName": "sam",
+      "amount": 10,
+      "type": "debit",
+      "reason": "bought 1g milk extra",
+      "orderId": "sam_12142025_1953"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765850914325",
+    "timestamp": "2025-12-16T02:08:34.325Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "ORDER_STATUS_UPDATED",
+    "details": {
+      "orderId": "Satish_12142025_1702",
+      "previousStatus": "delivered",
+      "newStatus": "delivered"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765759988695",
+    "timestamp": "2025-12-15T00:53:08.695Z",
+    "userId": "1764888441796",
+    "userName": "sam",
+    "userEmail": "sam@gmail.com",
+    "action": "DEBIT_PAID",
+    "details": {
+      "amount": 10,
+      "paymentId": "demo_payment_id",
+      "paymentMethod": "stripe",
+      "paidDebits": [
+        {
+          "debitId": "DEBIT_1765166742976",
+          "amount": 10
+        }
+      ]
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765752821186",
+    "timestamp": "2025-12-14T22:53:41.186Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "ORDER_STATUS_UPDATED",
+    "details": {
+      "orderId": "Satish_12142025_1648",
+      "previousStatus": "hold",
+      "newStatus": "hold"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765752774430",
+    "timestamp": "2025-12-14T22:52:54.430Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "ORDER_STATUS_UPDATED",
+    "details": {
+      "orderId": "Satish_12142025_1623",
+      "previousStatus": "delivered",
+      "newStatus": "delivered"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765751281196",
+    "timestamp": "2025-12-14T22:28:01.196Z",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "action": "DEBIT_PAID",
+    "details": {
+      "amount": 3,
+      "paymentId": "demo_payment_id",
+      "paymentMethod": "stripe",
+      "paidDebits": [
+        {
+          "debitId": "DEBIT_1765751199424",
+          "amount": 3
+        }
+      ]
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765751281182",
+    "timestamp": "2025-12-14T22:28:01.182Z",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "action": "CREDIT_APPLIED",
+    "details": {
+      "orderId": "pending",
+      "amount": 2,
+      "appliedCredits": [
+        {
+          "creditId": "CREDIT_1765751185570",
+          "amount": 2
+        }
+      ]
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765751199426",
+    "timestamp": "2025-12-14T22:26:39.426Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "DEBIT_ISSUED",
+    "details": {
+      "entryId": "DEBIT_1765751199424",
+      "userId": "1765747328062",
+      "userName": "Satish",
+      "amount": 3,
+      "type": "debit",
+      "reason": "Additional purchases at pickup",
+      "orderId": "Satish_12142025_1709"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765751185574",
+    "timestamp": "2025-12-14T22:26:25.574Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "CREDIT_ISSUED",
+    "details": {
+      "entryId": "CREDIT_1765751185570",
+      "userId": "1765747328062",
+      "userName": "Satish",
+      "amount": 2,
+      "type": "credit",
+      "reason": "Product unavailable - store credit",
+      "orderId": "Satish_12142025_1718"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765750704999",
+    "timestamp": "2025-12-14T22:18:24.999Z",
+    "userId": "1765747328062",
+    "userName": "Satish",
+    "userEmail": "satish@gmail.com",
+    "action": "DEBIT_PAID",
+    "details": {
+      "amount": 3,
+      "paymentId": "demo_payment_id",
+      "paymentMethod": "stripe",
+      "paidDebits": [
+        {
+          "debitId": "DEBIT_1765747590846",
+          "amount": 3
+        }
+      ]
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765747590848",
+    "timestamp": "2025-12-14T21:26:30.848Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "DEBIT_ISSUED",
+    "details": {
+      "entryId": "DEBIT_1765747590846",
+      "userId": "1765747328062",
+      "userName": "Satish",
+      "amount": 3,
+      "type": "debit",
+      "reason": "Additional purchases at pickup",
+      "orderId": "Satish_12142025_1623"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765747506202",
+    "timestamp": "2025-12-14T21:25:06.202Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "ORDERS_ARCHIVED",
+    "details": {
+      "orderIds": [
+        "sam_12072025_1538",
+        "sam_12072025_1514",
+        "sam_12072025_1510"
+      ],
+      "count": 3,
+      "orderDetails": [
+        {
+          "id": "sam_12072025_1510",
+          "customer": "sam",
+          "total": 27,
+          "status": "hold"
+        },
+        {
+          "id": "sam_12072025_1514",
+          "customer": "sam",
+          "total": 7,
+          "status": "delivered"
+        },
+        {
+          "id": "sam_12072025_1538",
+          "customer": "sam",
+          "total": 7,
+          "status": "submitted"
+        }
+      ]
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765166742979",
+    "timestamp": "2025-12-08T04:05:42.979Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "DEBIT_ISSUED",
+    "details": {
+      "entryId": "DEBIT_1765166742976",
+      "userId": "1764888441796",
+      "userName": "sam",
+      "amount": 10,
+      "type": "debit",
+      "reason": "Additional purchases at pickup",
+      "orderId": "sam_12072025_1538"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765140016220",
+    "timestamp": "2025-12-07T20:40:16.220Z",
+    "userId": "2",
+    "userName": "John Smith",
+    "userEmail": "john@example.com",
+    "action": "ORDER_STATUS_UPDATED",
+    "details": {
+      "orderId": "sam_12072025_1514",
+      "previousStatus": "delivered",
+      "newStatus": "delivered"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1765140008205",
+    "timestamp": "2025-12-07T20:40:08.205Z",
+    "userId": "2",
+    "userName": "John Smith",
+    "userEmail": "john@example.com",
+    "action": "ORDER_STATUS_UPDATED",
+    "details": {
+      "orderId": "sam_12072025_1510",
+      "previousStatus": "hold",
+      "newStatus": "hold"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1764990466256",
+    "timestamp": "2025-12-06T03:07:46.256Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "ORDERS_ARCHIVED",
+    "details": {
+      "orderIds": [
+        "sam_12052025_2100",
+        "sam_12052025_2049",
+        "sam_12052025_2045",
+        "sam_12052025_2036",
+        "sam_12052025_1223",
+        "sam_12042025_2350",
+        "AdminUser_12042025_SCRB",
+        "JohnSmith_12042025_MN60",
+        "John_Smith_12042025_1764886646400",
+        "John_Smith_12042025_1764886253906",
+        "John_Smith_12042025_1764884914086",
+        "John_Smith_12042025",
+        "1764883427691",
+        "1764881670842",
+        "1764875062327",
+        "1764874513403"
+      ],
+      "count": 16,
+      "orderDetails": [
+        {
+          "id": "1764874513403",
+          "customer": "John Smith",
+          "total": 32.45,
+          "status": "hold"
+        },
+        {
+          "id": "1764875062327",
+          "customer": "John Smith",
+          "total": 23.96,
+          "status": "delivered"
+        },
+        {
+          "id": "1764881670842",
+          "customer": "John Smith",
+          "total": 17.98,
+          "status": "delivered"
+        },
+        {
+          "id": "1764883427691",
+          "customer": "John Smith",
+          "total": 163.76000000000002,
+          "status": "delivered"
+        },
+        {
+          "id": "John_Smith_12042025",
+          "customer": "John Smith",
+          "total": 17.97,
+          "status": "delivered"
+        },
+        {
+          "id": "John_Smith_12042025_1764884914086",
+          "customer": "John Smith",
+          "total": 8.99,
+          "status": "delivered"
+        },
+        {
+          "id": "John_Smith_12042025_1764886253906",
+          "customer": "John Smith",
+          "total": 17.97,
+          "status": "submitted"
+        },
+        {
+          "id": "John_Smith_12042025_1764886646400",
+          "customer": "John Smith",
+          "total": 24.47,
+          "status": "submitted"
+        },
+        {
+          "id": "JohnSmith_12042025_MN60",
+          "customer": "John Smith",
+          "total": 5.99,
+          "status": "submitted"
+        },
+        {
+          "id": "AdminUser_12042025_SCRB",
+          "customer": "Admin User",
+          "total": 8.99,
+          "status": "delivered"
+        },
+        {
+          "id": "sam_12042025_2350",
+          "customer": "sam",
+          "total": 88,
+          "status": "delivered"
+        },
+        {
+          "id": "sam_12052025_1223",
+          "customer": "sam",
+          "total": 38,
+          "status": "submitted"
+        },
+        {
+          "id": "sam_12052025_2036",
+          "customer": "sam",
+          "total": 25,
+          "status": "submitted"
+        },
+        {
+          "id": "sam_12052025_2045",
+          "customer": "sam",
+          "total": 8,
+          "status": "submitted"
+        },
+        {
+          "id": "sam_12052025_2049",
+          "customer": "sam",
+          "total": 30,
+          "status": "submitted"
+        },
+        {
+          "id": "sam_12052025_2100",
+          "customer": "sam",
+          "total": 11,
+          "status": "submitted"
+        }
+      ]
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
+    "id": "1764955524089",
+    "timestamp": "2025-12-05T17:25:24.089Z",
+    "userId": "2",
+    "userName": "John Smith",
+    "userEmail": "john@example.com",
+    "action": "ORDER_STATUS_UPDATED",
+    "details": {
+      "orderId": "sam_12042025_2350",
+      "previousStatus": "delivered",
+      "newStatus": "delivered"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
     "id": "1764908243904",
     "timestamp": "2025-12-05T04:17:23.904Z",
     "userId": "2",

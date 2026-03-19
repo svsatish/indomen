@@ -27,16 +27,22 @@ export const AuthProvider = ({ children }) => {
 
     const checkSession = async () => {
         try {
+            console.log('🔍 Checking session...');
             const response = await fetch('/api/auth/session', {
                 credentials: 'include'
             });
 
             if (response.ok) {
                 const data = await response.json();
+                console.log('✅ Session valid:', data.user.email);
                 setUser(data.user);
+            } else {
+                console.log('❌ No valid session');
+                setUser(null);
             }
         } catch (error) {
             console.error('Session check failed:', error);
+            setUser(null);
         } finally {
             setLoading(false);
         }

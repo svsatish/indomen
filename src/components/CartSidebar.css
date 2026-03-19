@@ -107,7 +107,7 @@
 }
 
 .empty-icon {
-    font-size: 5rem;
+    font-size: calc(var(--text-5xl) * 1.4);
     opacity: 0.5;
     margin-bottom: var(--space-lg);
 }

@@ -6,9 +6,10 @@
     "price": 8,
     "unit": "lb",
     "description": "Farm-fresh butter churned from grass-fed cow cream",
-    "image": "/images/butter.jpg",
+    "image": "/images/uploads/whatsapp-image-2025-12-02-at-09-44-17-1764988031691-433053474.jpeg",
     "stock": 50,
-    "featured": true
+    "featured": true,
+    "updatedAt": "2025-12-06T02:27:20.971Z"
   },
   {
     "id": "2",
@@ -39,9 +40,10 @@
     "price": 7.5,
     "unit": "gallon",
     "description": "Premium A2 regular milk, easier to digest",
-    "image": "/images/milk.jpg",
+    "image": "/images/uploads/a2Milk.png",
     "stock": 80,
-    "featured": true
+    "featured": true,
+    "updatedAt": "2025-12-07T19:15:22.671Z"
   },
   {
     "id": "5",
@@ -373,5 +375,17 @@
     "image": "/images/cinnamon-rolls.jpg",
     "stock": 25,
     "featured": true
+  },
+  {
+    "id": "1764955648069",
+    "name": "Flowers",
+    "category": "misc",
+    "price": 10,
+    "unit": "pot",
+    "description": "Flower ",
+    "stock": 20,
+    "image": "/images/product.jpg",
+    "featured": false,
+    "createdAt": "2025-12-05T17:27:28.069Z"
   }
 ]

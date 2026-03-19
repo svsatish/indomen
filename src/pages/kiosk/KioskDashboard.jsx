@@ -214,21 +214,33 @@ const KioskDashboard = () => {
                 {/* Compact List View */}
                 <div className="orders-list">
                     {filteredOrders.map(order => (
-                        <div key={order.id} className={`order-list-item ${order.status} ${expandedOrders.has(order.id) ? 'expanded' : ''}`}>
-                            <div className="order-summary" onClick={() => toggleOrderExpansion(order.id)}>
+                        <div
+                            key={order.id}
+                            className={`order-list-item ${order.status} ${expandedOrders.has(order.id) ? 'expanded' : ''}`}
+                        >
+                            {/* Order Header - Always visible */}
+                            <div
+                                onClick={() => toggleOrderExpansion(order.id)}
+                                className="order-summary"
+                            >
+                                {/* Left side: Arrow + Name + Details */}
                                 <div className="order-summary-left">
                                     <span className="expand-icon">
                                         {expandedOrders.has(order.id) ? '▼' : '▶'}
                                     </span>
                                     <div className="order-info">
-                                        <h3 className="customer-name">{order.userName}</h3>
+                                        <h3 className="customer-name">
+                                            {order.userName || 'Unknown Customer'}
+                                        </h3>
                                         <span className="order-meta">
-                                            #{order.id} • {order.pickupLocation} • ${order.total.toFixed(2)}
+                                            #{order.id?.slice(-8)} • {order.pickupLocation} • ${(order.finalAmount || order.total || 0).toFixed(2)}
                                         </span>
                                     </div>
                                 </div>
+
+                                {/* Right side: Status Badge */}
                                 <div className="order-summary-right">
-                                    <span className={`status-badge ${getStatusBadge(order.status)}`}>
+                                    <span className={`status-badge ${order.status}`}>
                                         {getStatusIcon(order.status)} {order.status.toUpperCase()}
                                     </span>
                                 </div>
@@ -247,7 +259,7 @@ const KioskDashboard = () => {
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                                     <span className="detail-value">{order.phone}</span>
                                                     <a
-                                                        href={createWhatsAppLink(order.phone, `Hi ${order.userName}, regarding your Indomen order #${order.id}...`)}
+                                                        href={createWhatsAppLink(order.phone, `Hi ${order.userName}, regarding your FreshFarm order #${order.id}...`)}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         title="Chat on WhatsApp"
@@ -310,7 +322,7 @@ const KioskDashboard = () => {
                                         )}
                                         {order.status === 'hold' && order.phone && (
                                             <a
-                                                href={createWhatsAppLink(order.phone, `Hi ${order.userName}, your Indomen order #${order.id} is currently ON HOLD. Reason: ${order.holdNote || 'Pending review'}. Please contact us.`)}
+                                                href={createWhatsAppLink(order.phone, `Hi ${order.userName}, your FreshFarm order #${order.id} is currently ON HOLD. Reason: ${order.holdNote || 'Pending review'}. Please contact us.`)}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="btn btn-whatsapp"

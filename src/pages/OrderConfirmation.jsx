@@ -101,9 +101,35 @@ const OrderConfirmation = () => {
                                 });
                             })()}
 
-                            <div className="order-total">
-                                <span>Total</span>
-                                <span>${order.total.toFixed(2)}</span>
+                            <div className="order-total-section">
+                                {/* Show subtotal if any adjustments were made */}
+                                {((order.creditApplied || 0) > 0 || (order.debitApplied || 0) > 0) && (
+                                    <div className="subtotal-row">
+                                        <span>Subtotal</span>
+                                        <span>${(order.total || 0).toFixed(2)}</span>
+                                    </div>
+                                )}
+
+                                {/* Show credit applied */}
+                                {(order.creditApplied || 0) > 0 && (
+                                    <div className="credit-row">
+                                        <span>💰 Store Credit Applied</span>
+                                        <span className="credit-amount">-${(order.creditApplied || 0).toFixed(2)}</span>
+                                    </div>
+                                )}
+
+                                {/* Show debit/balance owed that was paid */}
+                                {(order.debitApplied || 0) > 0 && (
+                                    <div className="debit-row">
+                                        <span>⚠️ Previous Balance Paid</span>
+                                        <span className="debit-amount">+${(order.debitApplied || 0).toFixed(2)}</span>
+                                    </div>
+                                )}
+
+                                <div className="order-total">
+                                    <span>Total Paid</span>
+                                    <span>${(order.finalAmount || order.total || 0).toFixed(2)}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
