@@ -1,5 +1,5 @@
 
-# 🌾 Indomen Connection - Farm Fresh E-Commerce Platform
+# 🌾 Farm to Table - Farm Fresh E-Commerce Platform
 A modern full-stack platform built with React (Vite) and Node.js/Express that enables customers to receive fresh dairy and produce sourced weekly from Mennonite and Amish farms. We transport and coordinate delivery—we are not resellers.
 
 > 📘 **User Guide**: Check out [demo.md](./demo.md) for a visual walkthrough of the application features.
@@ -65,7 +65,7 @@ A modern full-stack platform built with React (Vite) and Node.js/Express that en
 
 1. **Clone or navigate to the project directory**
    ```bash
-   cd indomen
+   cd freshfarm
    ```
 
 2. **Install frontend dependencies**
@@ -111,7 +111,7 @@ A modern full-stack platform built with React (Vite) and Node.js/Express that en
 ## 👤 Demo Accounts
 
 ### Admin Account
-- **Email:** admin@indomen.com
+- **Email:** admin@freshfarm.com
 - **Password:** password123
 - **Access:** Full admin panel + kiosk access
 
@@ -127,7 +127,7 @@ A modern full-stack platform built with React (Vite) and Node.js/Express that en
 ## 📁 Project Structure
 
 ```
-indomen/
+freshfarm/
 ├── server/                 # Backend (Node.js/Express)
 │   ├── server.js          # Main server file
 │   ├── config/            # Database configuration
@@ -282,4 +282,4 @@ This project is for demonstration purposes.
 
 ---
 
-**Built with ❤️ for Indomen Connection**
+**Built with ❤️ for Farm to Table**

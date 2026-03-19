@@ -439,7 +439,7 @@ const OrderManagement = () => {
                                                 <span>{viewingOrder.phone || 'N/A'}</span>
                                                 {viewingOrder.phone && (
                                                     <a
-                                                        href={createWhatsAppLink(viewingOrder.phone, `Hi ${viewingOrder.userName}, regarding your Indomen order #${viewingOrder.id}...`)}
+                                                        href={createWhatsAppLink(viewingOrder.phone, `Hi ${viewingOrder.userName}, regarding your FreshFarm order #${viewingOrder.id}...`)}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         title="Chat on WhatsApp"

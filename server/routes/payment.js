@@ -30,7 +30,7 @@ router.post('/create-payment-intent', async (req, res) => {
                 enabled: true,
             },
             metadata: {
-                integration: 'indomen_marketplace'
+                integration: 'freshfarm_marketplace'
             }
         });
 

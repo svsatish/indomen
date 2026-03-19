@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "email": "admin@indomen.com",
+    "email": "admin@freshfarm.com",
     "password": "$2a$10$LKDXKzrBJS1meUT2HwJEm.UE7EWpBtEgVgnY45e.9PeXJv29m9L0S",
     "name": "Admin User",
     "role": "admin",

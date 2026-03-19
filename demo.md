@@ -1,8 +1,8 @@
-# 🥬 Indomen Connection - Application Demo & User Guide
+# 🥬 Farm to Table - Application Demo & User Guide
 
-Welcome to **Indomen Connection**, a modern web application for managing farm-to-table orders. This guide provides a walkthrough of the application's features for Customers, Administrators, and Kiosk Operators.
+Welcome to **Farm to Table**, a modern web application for managing farm-to-table orders. This guide provides a walkthrough of the application's features for Customers, Administrators, and Kiosk Operators.
 
-![Indomen Home Page](screenshots/landing_page.png)
+![FreshFarm Home Page](screenshots/landing_page.png)
 
 ---
 
@@ -206,7 +206,7 @@ Designed for fast-paced, on-site fulfillment centers.
 ## 🚀 Getting Started
 
 1.  **Login**:
-    *   **Admin**: `admin@indomen.com` / `password123`
+    *   **Admin**: `admin@freshfarm.com` / `password123`
     *   **Kiosk**: `kiosk@freshfarm.com` / `kiosk123`
     *   **Customer**: Use `john@example.com` / `password123` or `sarah@example.com` / `password123`
 2.  **Explore**: Navigate using the top menu based on your role.

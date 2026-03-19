@@ -1,5 +1,20 @@
 [
   {
+    "id": "1770955065684",
+    "timestamp": "2026-02-13T03:57:45.684Z",
+    "userId": "1",
+    "userName": "Admin User",
+    "userEmail": "admin@freshfarm.com",
+    "action": "ORDER_STATUS_UPDATED",
+    "details": {
+      "orderId": "sam_02122026_2257",
+      "previousStatus": "delivered",
+      "newStatus": "delivered"
+    },
+    "ipAddress": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+  },
+  {
     "id": "1765851992580",
     "timestamp": "2025-12-16T02:26:32.580Z",
     "userId": "1764888441796",
@@ -25,7 +40,7 @@
     "timestamp": "2025-12-16T02:12:22.668Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "ORDER_STATUS_UPDATED",
     "details": {
       "orderId": "Satish_12142025_1705",
@@ -40,7 +55,7 @@
     "timestamp": "2025-12-16T02:09:53.861Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "DEBIT_ISSUED",
     "details": {
       "entryId": "DEBIT_1765850993858",
@@ -59,7 +74,7 @@
     "timestamp": "2025-12-16T02:08:34.325Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "ORDER_STATUS_UPDATED",
     "details": {
       "orderId": "Satish_12142025_1702",
@@ -95,7 +110,7 @@
     "timestamp": "2025-12-14T22:53:41.186Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "ORDER_STATUS_UPDATED",
     "details": {
       "orderId": "Satish_12142025_1648",
@@ -110,7 +125,7 @@
     "timestamp": "2025-12-14T22:52:54.430Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "ORDER_STATUS_UPDATED",
     "details": {
       "orderId": "Satish_12142025_1623",
@@ -166,7 +181,7 @@
     "timestamp": "2025-12-14T22:26:39.426Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "DEBIT_ISSUED",
     "details": {
       "entryId": "DEBIT_1765751199424",
@@ -185,7 +200,7 @@
     "timestamp": "2025-12-14T22:26:25.574Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "CREDIT_ISSUED",
     "details": {
       "entryId": "CREDIT_1765751185570",
@@ -225,7 +240,7 @@
     "timestamp": "2025-12-14T21:26:30.848Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "DEBIT_ISSUED",
     "details": {
       "entryId": "DEBIT_1765747590846",
@@ -244,7 +259,7 @@
     "timestamp": "2025-12-14T21:25:06.202Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "ORDERS_ARCHIVED",
     "details": {
       "orderIds": [
@@ -282,7 +297,7 @@
     "timestamp": "2025-12-08T04:05:42.979Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "DEBIT_ISSUED",
     "details": {
       "entryId": "DEBIT_1765166742976",
@@ -331,7 +346,7 @@
     "timestamp": "2025-12-06T03:07:46.256Z",
     "userId": "1",
     "userName": "Admin User",
-    "userEmail": "admin@indomen.com",
+    "userEmail": "admin@freshfarm.com",
     "action": "ORDERS_ARCHIVED",
     "details": {
       "orderIds": [

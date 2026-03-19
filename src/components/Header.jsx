@@ -57,7 +57,7 @@ const Header = () => {
                             <div className="logo-content">
                                 <span className="logo-icon">🌾</span>
                                 <div className="logo-text">
-                                    <span className="logo-main">Indomen</span>
+                                    <span className="logo-main">FreshFarm</span>
                                     <span className="logo-sub">Connection</span>
                                 </div>
                             </div>

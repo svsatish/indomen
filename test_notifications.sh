@@ -15,7 +15,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 API_URL="http://localhost:3000"
-ADMIN_EMAIL="admin@indomen.com"
+ADMIN_EMAIL="admin@freshfarm.com"
 ADMIN_PASSWORD="password"
 TEST_USER_ID="1764888441796"
 TEST_USER_EMAIL="sam@gmail.com"

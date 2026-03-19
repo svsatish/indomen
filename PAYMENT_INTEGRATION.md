@@ -1,6 +1,6 @@
 # 💳 Payment Integration Guide
 
-This document explains how to set up and configure the multiple payment methods available in the Indomen Connection marketplace.
+This document explains how to set up and configure the multiple payment methods available in the Farm to Table marketplace.
 
 ## Supported Payment Methods
 

@@ -259,7 +259,7 @@ const KioskDashboard = () => {
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                                     <span className="detail-value">{order.phone}</span>
                                                     <a
-                                                        href={createWhatsAppLink(order.phone, `Hi ${order.userName}, regarding your Indomen order #${order.id}...`)}
+                                                        href={createWhatsAppLink(order.phone, `Hi ${order.userName}, regarding your FreshFarm order #${order.id}...`)}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         title="Chat on WhatsApp"
@@ -322,7 +322,7 @@ const KioskDashboard = () => {
                                         )}
                                         {order.status === 'hold' && order.phone && (
                                             <a
-                                                href={createWhatsAppLink(order.phone, `Hi ${order.userName}, your Indomen order #${order.id} is currently ON HOLD. Reason: ${order.holdNote || 'Pending review'}. Please contact us.`)}
+                                                href={createWhatsAppLink(order.phone, `Hi ${order.userName}, your FreshFarm order #${order.id} is currently ON HOLD. Reason: ${order.holdNote || 'Pending review'}. Please contact us.`)}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="btn btn-whatsapp"
